@@ -1,6 +1,7 @@
 package scanner
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 	"net/http"
@@ -54,10 +55,10 @@ func (c *BscScanClient) IsContractVerified(address string) (bool, error) {
 	body, _ := io.ReadAll(resp.Body)
 
 	var result ContracttSouurceResponse
-	if err := json.unmarshal(body, &result); err != nil {
+	if err := json.Unmarshal(body, &result); err != nil {
 		fmt.Println("Error unmarshaling response:", err)
 		return false, err
 	}
 
-	return false, nil
+	return result.Status == "1" && len(result.Result) > 0 && result.Result[0].SourceCode != "", nil
 }
