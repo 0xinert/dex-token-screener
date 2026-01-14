@@ -1,0 +1,139 @@
+redFlags := []string{
+    "mint(", "mintTokens(",           // Unlimited minting
+    "pause(", "pauseTrading(",        // Trading pause
+    "blacklist", "isBlackListed",     // Blacklist capability
+    "setMaxTx", "setMaxWallet",       // Dynamic limits
+    "renounceOwnership() public",     // Check if NOT renounced
+}
+```
+
+**Proxy Detection:**
+- Check `Implementation` field in API response
+- Flag if proxy contract (upgradeable = risky)
+
+**Owner Permissions:**
+- Parse `owner()` or `Ownable` pattern
+- Check if `renounceOwnership()` was called (tx history)
+
+### Decision:
+```
+PASS = Verified + No red flags + Owner renounced
+FAIL = Any critical flag present
+```
+
+---
+
+## 2. DexScreener Liquidity Analysis
+
+### API Endpoint:
+```
+GET https://api.dexscreener.com/latest/dex/tokens/{TOKEN_ADDRESS}
+
+
+{
+  "pairs": [{
+    "liquidity": {"usd": 500000},
+    "volume": {"h24": 50000},
+    "priceChange": {"h24": -5.2},
+    "txns": {"h24": {"buys": 150, "sells": 145}}
+  }]
+}
+```
+
+### Filters:
+
+**Minimum Liquidity:**
+```
+liquidity.usd >= $100,000 (adjustable)
+```
+
+**Volume Consistency:**
+```
+volume.h24 >= $10,000
+volume.h24 / liquidity.usd >= 0.05 (5% turnover)
+```
+
+**LP Stability:**
+- Track liquidity changes over 7 days
+- Flag if >30% drop in 24h
+
+**Slippage Check:**
+- DexScreener doesn't give direct slippage
+- **Simulate:** Use their `priceNative` + calculate impact for $1K/$10K trade
+- Or call PancakeSwap router: `getAmountsOut()` with different amounts
+
+---
+
+## 3. Risk Scoring Formula
+
+### Components (0-100 scale each):
+
+**Liquidity Quality (30%):**
+```
+Score = min(100, (liquidity_usd / 1_000_000) * 100)
+```
+
+**Volume Consistency (25%):**
+```
+Score = min(100, (volume_24h / 100_000) * 100)
+Penalty if volume/liquidity ratio < 0.05
+```
+
+**Slippage Curve (20%):**
+```
+$1K trade slippage < 1% → 100
+$1K trade slippage 1-3% → 70
+$1K trade slippage 3-5% → 40
+$1K trade slippage > 5% → 0
+```
+
+**Holder Distribution (15%):**
+```
+Top 10 holders own < 50% → 100
+Top 10 holders own 50-70% → 60
+Top 10 holders own > 70% → 20
+```
+(Get from BscScan: `?module=token&action=tokenholderlist`)
+
+**Contract Risk Signals (10%):**
+```
+Verified + No red flags + Owner renounced → 100
+Verified + Some flags → 50
+Unverified or critical flags → 0
+```
+
+### Final Score:
+```
+Risk_Score = (0.30 * Liquidity) + (0.25 * Volume) + 
+             (0.20 * Slippage) + (0.15 * Holders) + 
+             (0.10 * Contract)
+```
+
+### Thresholds: 
+- **>= 70:** Featured/visible
+- **50-69:** Visible with warning
+- **< 50:** Hidden/restricted
+
+---
+e
+## 4. Prototype Architecture (Golang)
+```
+┌─────────────┐
+│ Bitquery    │──→ Token addresses (new mints/pairs)
+└─────────────┘
+       ↓
+┌─────────────────────────────────────────┐
+│ Token Processor (goroutine pool)        │
+│  ├─→ BscScan API (contract check)       │
+│  ├─→ DexScreener API (liquidity/volume) │
+│  ├─→ PancakeSwap RPC (slippage sim)     │
+│  └─→ BscScan API (holder distribution)  │
+└─────────────────────────────────────────┘
+       ↓
+┌─────────────┐
+│ Risk Scorer │──→ Calculate composite score
+└─────────────┘
+       ↓
+┌─────────────┐
+│ Postgres DB │──→ Store: address, scores, flags, timestamp
+└─────────────┘
