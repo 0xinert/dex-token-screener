@@ -66,7 +66,7 @@ func (c *BscScanClient) IsContractVerified(contractAddress string) (bool, error)
 		return false, err
 	}
 
-	return result.Status == "1" && len(result.Result) > 0 && result.Result[0].SourceCode != "", nil
+	return result.Status == "1" && len(result.Result) > 0 && result.Result[0].SourceCode != "" && result.Result[0].ABI != "" && result.Result[0].Proxy == "0", nil
 }
 
 func (c *BscScanClient) GetTop10HoldersConcentration(contractAddress string) (float64, error) {
@@ -113,8 +113,6 @@ func (c *BscScanClient) GetTop10HoldersConcentration(contractAddress string) (fl
 	}
 
 	return (totalTop10Balance / totalsupply) * 100, nil
-
-	return 0, nil
 }
 
 func (c *BscScanClient) GetTotalSupply(contractAddress string) (float64, error) {
