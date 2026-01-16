@@ -33,6 +33,11 @@ type TokenHoldersResponse struct {
 	Result []models.BscScanHolder `json:"result"`
 }
 
+type TokenTotalSupplyResponse struct {
+	Status string `json:"status"`
+	Result string `json:"result"`
+}
+
 func NewBscScanClient(apiKey string) *BscScanClient {
 	return &BscScanClient{
 		apikey:     apiKey,
@@ -64,9 +69,9 @@ func (c *BscScanClient) IsContractVerified(contractAddress string) (bool, error)
 	return result.Status == "1" && len(result.Result) > 0 && result.Result[0].SourceCode != "", nil
 }
 
-func (c *BscScanClient) GetTop10HoldersConcentration(tokenAddress string) (float64, error) {
+func (c *BscScanClient) GetTop10HoldersConcentration(contractAddress string) (float64, error) {
 	url := fmt.Sprintf("%s?&chainId=56&module=token&action=topholders&contractaddress=%s&offet=10&apikey=%s",
-		c.baseURL, tokenAddress, c.apikey)
+		c.baseURL, contractAddress, c.apikey)
 
 	resp, err := c.httpClient.Get(url)
 	if err != nil {
@@ -97,7 +102,7 @@ func (c *BscScanClient) GetTop10HoldersConcentration(tokenAddress string) (float
 		totalTop10Balance += balance
 	}
 
-	totalsupply, err := c.GetTotalSupply(tokenAddress)
+	totalsupply, err := c.GetTotalSupply(contractAddress)
 	if err != nil {
 		fmt.Println("Error fetching total supply:", err)
 		return 0, err
@@ -112,6 +117,29 @@ func (c *BscScanClient) GetTop10HoldersConcentration(tokenAddress string) (float
 	return 0, nil
 }
 
-func (c *BscScanClient) GetTotalSupply(tokenAddress string) (float64, error) {
-	return 0, nil
+func (c *BscScanClient) GetTotalSupply(contractAddress string) (float64, error) {
+	url := fmt.Sprintf("%s?&chainId=56&module=state&action=tokensupply&contractaddress=%s&apikey=%s",
+		c.baseURL, contractAddress, c.apikey)
+
+	resp, err := c.httpClient.Get(url)
+	if err != nil {
+		fmt.Println("Error fetching token holders:", err)
+		return 0, err
+	}
+
+	defer resp.Body.Close()
+
+	body, _ := io.ReadAll(resp.Body)
+
+	var result TokenTotalSupplyResponse
+	if err := json.Unmarshal(body, &result); err != nil {
+		fmt.Println("Error unmarshaling TokenTotalSupplyResponse response:", err)
+		return 0, err
+	}
+
+	if len(result.Result) == 0 {
+		return 0, nil
+	}
+
+	return strconv.ParseFloat(result.Result, 64)
 }
