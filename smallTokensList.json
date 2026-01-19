@@ -4,5 +4,467 @@
     "decimals": 18,
     "name": "玄学",
     "symbol": "玄学"
+  },
+  {
+    "contract_address": "0xa5624e6507f79d398d0a12300f0bce992f0e7ade",
+    "decimals": 18,
+    "name": "Pancake LPs",
+    "symbol": "Cake-LP"
+  },
+  {
+    "contract_address": "0xe7576b0777aa3cf2390c89755711e31c86015d13",
+    "decimals": 18,
+    "name": "Moemate",
+    "symbol": "MATES"
+  },
+  {
+    "contract_address": "0x187c6634c347210c5423a63c0154b7e337407777",
+    "decimals": 18,
+    "name": "尼基塔野猪",
+    "symbol": "尼基塔"
+  },
+  {
+    "contract_address": "0x60e744b9946cfb7ffc36dc6bec3665ad8903d08a",
+    "decimals": 18,
+    "name": "ChainCamp",
+    "symbol": "CCMP"
+  },
+  {
+    "contract_address": "0xf384aff52088524d1f52c3336ff642d4d12b224a",
+    "decimals": 18,
+    "name": "ꓴ5ꓓC    ",
+    "symbol": "ꓴ5ꓓC  "
+  },
+  {
+    "contract_address": "0x52860022a718c457dd29807cc4ff46cc622c4444",
+    "decimals": 18,
+    "name": "新华社哭哭马义乌速度",
+    "symbol": "义乌速度"
+  },
+  {
+    "contract_address": "0x35d987c9f51a3b5bc13f228654da75cd85104444",
+    "decimals": 18,
+    "name": "four官网即将被封建",
+    "symbol": "4"
+  },
+  {
+    "contract_address": "0x5f813c44568ab617938e3a577c6a0a263424c1c9",
+    "decimals": 18,
+    "name": "Pancake LPs",
+    "symbol": "Cake-LP"
+  },
+  {
+    "contract_address": "0x54da93fb70fedff411bc18b3fc77ae42bc2939e1",
+    "decimals": 18,
+    "name": "Winkster AI",
+    "symbol": "Winkster AI"
+  },
+  {
+    "contract_address": "0x84e073fd9d15460c7c884531d6bffbbc694e4444",
+    "decimals": 18,
+    "name": "钱没了",
+    "symbol": "钱没了"
+  },
+  {
+    "contract_address": "0x959bcdd2b3955afd61073458b5d4ed24166b0820",
+    "decimals": 18,
+    "name": "Reddio",
+    "symbol": "RDO"
+  },
+  {
+    "contract_address": "0x4f5d07f489df9d53af6757edaaf5383e5fa54444",
+    "decimals": 18,
+    "name": "meme浪潮",
+    "symbol": "meme浪潮"
+  },
+  {
+    "contract_address": "0xd043a0c3ba5ba90499562ba73fe555d74a854444",
+    "decimals": 18,
+    "name": "玉少兄弟",
+    "symbol": "玉少兄弟"
+  },
+  {
+    "contract_address": "0x5fab16108daabfd1a815dea5289ba73d97f88888",
+    "decimals": 18,
+    "name": "meme热潮",
+    "symbol": "meme热潮"
+  },
+  {
+    "contract_address": "0x14fb369e6f208b4c812eda1f893a513f4d6ad033",
+    "decimals": 18,
+    "name": "Pancake LPs",
+    "symbol": "Cake-LP"
+  },
+  {
+    "contract_address": "0x8120edb431c594f400e7f8c0417ed7b4d7cf4444",
+    "decimals": 18,
+    "name": "至少比她长",
+    "symbol": "至少比她长"
+  },
+  {
+    "contract_address": "0x30c057da70de4347f98b4f11647804a814df4444",
+    "decimals": 18,
+    "name": "Biannce Gummy",
+    "symbol": "BIANNCE GUMMY`"
+  },
+  {
+    "contract_address": "0xd85c8e78f5c037aba7f1568cfafa3417f3ba4444",
+    "decimals": 18,
+    "name": "机器马",
+    "symbol": "机器马"
+  },
+  {
+    "contract_address": "0x6319b060f2b765bcc53333556631c53af5fe22d6",
+    "decimals": 18,
+    "name": "KAI Battle of Three Kingdoms",
+    "symbol": "SGC"
+  },
+  {
+    "contract_address": "0x1dd7f03f79f1e37858ce4c3856afc4da70da4951",
+    "decimals": 18,
+    "name": "Anita AI",
+    "symbol": "ANITA"
+  },
+  {
+    "contract_address": "0x49e8c0a8ebf8407f0bdf5f7d5e7773b7d5d1a469",
+    "decimals": 18,
+    "name": "PixelSmudge",
+    "symbol": "PSMD"
+  },
+  {
+    "contract_address": "0xced5a805105d2fe842b9cc0b8fc4bdaead424444",
+    "decimals": 18,
+    "name": "冲浪",
+    "symbol": "冲浪"
+  },
+  {
+    "contract_address": "0x83f306df1eca71d391f6a19633db79cf35ba4444",
+    "decimals": 18,
+    "name": "央视发布 过闽式福年",
+    "symbol": "闽式福年"
+  },
+  {
+    "contract_address": "0x444457e45b05cb9660e5299ccc2ea897a6b2c517",
+    "decimals": 18,
+    "name": "乔布斯",
+    "symbol": "乔布斯"
+  },
+  {
+    "contract_address": "0xf50341cb6f123eedc461829fd98fc63ff0bf4444",
+    "decimals": 18,
+    "name": "人生K线",
+    "symbol": "人生K线"
+  },
+  {
+    "contract_address": "0x8455f3cf72c7d05d219aac4cc4b2dbcc64efe1dc",
+    "decimals": 18,
+    "name": "TokenomicsLOL",
+    "symbol": "TKLOL"
+  },
+  {
+    "contract_address": "0xf44d130bdda7d93d6342afeac79bfd30b91c6efb",
+    "decimals": 18,
+    "name": "BNB KING",
+    "symbol": "👑BNB KING"
+  },
+  {
+    "contract_address": "0xa43faa767b834c3063b6876e5a4aadd3794674e5",
+    "decimals": 18,
+    "name": "mriTA",
+    "symbol": "iTA"
+  },
+  {
+    "contract_address": "0x26d49fd7ffdbf966b3ba536e5c67ac6953f54444",
+    "decimals": 18,
+    "name": "玄学的GPT时刻",
+    "symbol": "玄学的GPT时刻"
+  },
+  {
+    "contract_address": "0x92eaf71fc64564f06fddb30e1fe314590e87fd8c",
+    "decimals": 18,
+    "name": "Pancake LPs",
+    "symbol": "Cake-LP"
+  },
+  {
+    "contract_address": "0x4356d5dcf00c466018f9646ffa4f58013e114444",
+    "decimals": 18,
+    "name": "电子厂",
+    "symbol": "跑步进厂"
+  },
+  {
+    "contract_address": "0x3292bae5ae8709750c5514d09c72ca885f451b86",
+    "decimals": 18,
+    "name": "Punkvism",
+    "symbol": "PVT"
+  },
+  {
+    "contract_address": "0x26dac2a71975809a3521c939f788163334aec9e6",
+    "decimals": 18,
+    "name": "Pancake LPs",
+    "symbol": "Cake-LP"
+  },
+  {
+    "contract_address": "0x09c95c40d6e5e0703bf3dfe1e71fb85108b044de",
+    "decimals": 18,
+    "name": "RWA DePIN Protocol",
+    "symbol": "SUIRWAPIN"
+  },
+  {
+    "contract_address": "0x1839968d7b5b2cf411bebcf750e320d901ad8888",
+    "decimals": 18,
+    "name": "ATLAS",
+    "symbol": "ATLAS"
+  },
+  {
+    "contract_address": "0x4a27e949ac0cb13efa1f45bb9af30ef364124444",
+    "decimals": 18,
+    "name": "Robot HY",
+    "symbol": "Robot HY"
+  },
+  {
+    "contract_address": "0x4dd9d3d8d93f8dadbf969877856fcaf1e9854444",
+    "decimals": 18,
+    "name": "Hacked",
+    "symbol": "Giggler"
+  },
+  {
+    "contract_address": "0x583d3ea0039325480ca99ebbc1c6ed1dba6b8888",
+    "decimals": 18,
+    "name": "4ndation",
+    "symbol": "4ndation"
+  },
+  {
+    "contract_address": "0x56622798a0a26a2718b9a4d4da409e19dc7170cc",
+    "decimals": 18,
+    "name": "Elderglade",
+    "symbol": "ELDE"
+  },
+  {
+    "contract_address": "0xdc0238dd77fc2ad6d7081f65e4ff99164bcb9748",
+    "decimals": 18,
+    "name": "Pancake LPs",
+    "symbol": "Cake-LP"
+  },
+  {
+    "contract_address": "0x3e03eba3d3721cb79e7b0d4b9e6c9b0b6a578888",
+    "decimals": 18,
+    "name": "meme热潮",
+    "symbol": "meme热潮"
+  },
+  {
+    "contract_address": "0xf4ecb12aef6d0315031bf494dffea7546ecb4444",
+    "decimals": 18,
+    "name": " 尼基塔野猪",
+    "symbol": "公猪"
+  },
+  {
+    "contract_address": "0x4f14907332f6f54dedf1c40b28afdfc247cb9c74",
+    "decimals": 18,
+    "name": "GMToken",
+    "symbol": "GMT"
+  },
+  {
+    "contract_address": "0x805c84f3913138a7420efab1f22493cbb1c1c659",
+    "decimals": 18,
+    "name": "CerebroX",
+    "symbol": "CBRX"
+  },
+  {
+    "contract_address": "0x8bdcf64a2d2e4d8d3802c9c154a25ef1e2cf4444",
+    "decimals": 18,
+    "name": "中‌‍‍​‌‍‍‌‌�",
+    "symbol": "中‌‍‍​‌‍‍‌‌�"
+  },
+  {
+    "contract_address": "0x634620752e808a14157fddf1014c4dcce87f8888",
+    "decimals": 18,
+    "name": "MMTLP",
+    "symbol": "MMTLP"
+  },
+  {
+    "contract_address": "0xd28b650f71ba965e74b55d88ca1c824590dd4444",
+    "decimals": 18,
+    "name": "新闻 五色小马寓意",
+    "symbol": "福禄寿喜财"
+  },
+  {
+    "contract_address": "0xefce02b3541e875e39b5259f0b7fb721359d57b5",
+    "decimals": 18,
+    "name": "Pancake LPs",
+    "symbol": "Cake-LP"
+  },
+  {
+    "contract_address": "0x27d5e3b1e0285ccaeeae2f449dd6b86156bb7772",
+    "decimals": 18,
+    "name": "Pancake LPs",
+    "symbol": "Cake-LP"
+  },
+  {
+    "contract_address": "0xe29ff5c474f3d78a4b505503a85b3b97c6204444",
+    "decimals": 18,
+    "name": "強效藥丸",
+    "symbol": "藥片 E91"
+  },
+  {
+    "contract_address": "0xea0fb5bee856f557f778b6e5ad228e7dce35c63b",
+    "decimals": 18,
+    "name": "Resolv",
+    "symbol": "RESOLV"
+  },
+  {
+    "contract_address": "0xbc2465b076a5b65804887486c4a8be90eaee33d7",
+    "decimals": 18,
+    "name": "Pancake LPs",
+    "symbol": "Cake-LP"
+  },
+  {
+    "contract_address": "0x96c5c787f4621976d9e20bd91aa1589034984444",
+    "decimals": 18,
+    "name": "温克斯特",
+    "symbol": "温克斯特"
+  },
+  {
+    "contract_address": "0xebde9c4b4085dee6b0d60d5f1e7d4b86d3d6c42a",
+    "decimals": 18,
+    "name": "Clayton",
+    "symbol": "CLAY"
+  },
+  {
+    "contract_address": "0x549e07017c691ca5b74d42344dc48ed4da2c4444",
+    "decimals": 18,
+    "name": "今﻿年﻿运﻿动﻿计﻿�",
+    "symbol": "今﻿年﻿运﻿动﻿计﻿�"
+  },
+  {
+    "contract_address": "0xff5aa171a1de523cf3b1fe2fe185a93153e84444",
+    "decimals": 18,
+    "name": "人民日报 发布 我用AI造",
+    "symbol": "我用AI造轮胎"
+  },
+  {
+    "contract_address": "0x303f84acf8cc5d1a8ad2cb8db92559903d67c36e",
+    "decimals": 18,
+    "name": "Pancake LPs",
+    "symbol": "Cake-LP"
+  },
+  {
+    "contract_address": "0xfaefe913cb0e64e7935c044d8aa53ad6b4d54444",
+    "decimals": 18,
+    "name": "投资就是投人",
+    "symbol": "投资就是投人"
+  },
+  {
+    "contract_address": "0xbddd8c78b41db4997c5dd3f65ad31490bc224444",
+    "decimals": 18,
+    "name": "Giggle的官方吉祥物",
+    "symbol": "LuckyPig"
+  },
+  {
+    "contract_address": "0x23bfffd4c3933f997ff121060e5544a5e8751531",
+    "decimals": 18,
+    "name": "Pancake LPs",
+    "symbol": "Cake-LP"
+  },
+  {
+    "contract_address": "0x15540162138f2693145b3dd3bdfafd337d4195dc",
+    "decimals": 18,
+    "name": "RuneMine",
+    "symbol": "MINE"
+  },
+  {
+    "contract_address": "0xe6617b5c5c83b9c54c844f783ad8aa73cb381617",
+    "decimals": 18,
+    "name": "Pancake LPs",
+    "symbol": "Cake-LP"
+  },
+  {
+    "contract_address": "0x9e8b8cf57436a0ece17d753f271c14050e7352d9",
+    "decimals": 18,
+    "name": "Halo",
+    "symbol": "HLO"
+  },
+  {
+    "contract_address": "0x945f396450882c8b6c7a75bea6c86e789dce6ceb",
+    "decimals": 18,
+    "name": "Pancake LPs",
+    "symbol": "Cake-LP"
+  },
+  {
+    "contract_address": "0x103f17e474470cd83cfbcd40d64cfcccf2863934",
+    "decimals": 18,
+    "name": "Skald AI",
+    "symbol": "SKALD"
+  },
+  {
+    "contract_address": "0x072fea24a39e0770a25dd229504182d432e24444",
+    "decimals": 18,
+    "name": "草根文化",
+    "symbol": "草根文化"
+  },
+  {
+    "contract_address": "0x23e0b307d55b2bc723c5f3f4ca9cd48872e44444",
+    "decimals": 18,
+    "name": "快人一步",
+    "symbol": "快人1步"
+  },
+  {
+    "contract_address": "0x2ea94f31b7052ebd17210c49642f929f7aa1cd11",
+    "decimals": 18,
+    "name": "Douyin ",
+    "symbol": "Douyin"
+  },
+  {
+    "contract_address": "0x11fcae4196b1ea5a1bf828e0aa20ef2c7073b6b5",
+    "decimals": 18,
+    "name": "🔶BNB CHAN",
+    "symbol": "🔶BNB CHAN"
+  },
+  {
+    "contract_address": "0x88a7da04db58c01c9414d37bd36f9fb8e4fe4444",
+    "decimals": 18,
+    "name": "运行缓慢",
+    "symbol": "运行缓慢"
+  },
+  {
+    "contract_address": "0x760203fec60d878dbda0da78b3b6a2707741ccf1",
+    "decimals": 18,
+    "name": "传播数字泔水",
+    "symbol": "数字泔水"
+  },
+  {
+    "contract_address": "0xc99d886e9c1a0f9ddc1e785e77b881ec67a6fc1e",
+    "decimals": 18,
+    "name": "Pancake LPs",
+    "symbol": "Cake-LP"
+  },
+  {
+    "contract_address": "0x48a94e04151db84dfe452e4bd477f89b3bb54444",
+    "decimals": 18,
+    "name": "黑猫白猫",
+    "symbol": "黑猫白猫"
+  },
+  {
+    "contract_address": "0xbab9c3efad44ac402bbe13f8908ef26081ba0ce9",
+    "decimals": 18,
+    "name": "Pancake LPs",
+    "symbol": "Cake-LP"
+  },
+  {
+    "contract_address": "0x04293d86712891a36be1a41b6e9abf684d814444",
+    "decimals": 18,
+    "name": "糖﻿果",
+    "symbol": "糖﻿果"
+  },
+  {
+    "contract_address": "0xbc7462a22964a8a4a3ce0e559ef14fedea9b4444",
+    "decimals": 18,
+    "name": "潮玩手机",
+    "symbol": "潮玩手机"
+  },
+  {
+    "contract_address": "0x58c9ed9f838a86f9cbec7a88512e8d6c4aa37777",
+    "decimals": 18,
+    "name": "DeepSeekV4",
+    "symbol": "DEEPSEEKV4"
   }
 ]

@@ -77,7 +77,6 @@ func (c *BscScanClient) IsContractVerified(contractAddress string) (bool, error)
 	defer resp.Body.Close()
 
 	body, _ := io.ReadAll(resp.Body)
-	fmt.Println("IsContractVerified raw response:", string(body))
 
 	// First check if it's an error response
 	var errResp APIErrorResponse

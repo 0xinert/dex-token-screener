@@ -37,12 +37,12 @@ func main() {
 
 	// fmt.Printf("Read %v tokens from file.\n", tokenInfos)
 
-	for _, tokenInfo := range tokenInfos {
+	for i, tokenInfo := range tokenInfos {
 		// fmt.Printf("[%d/%d] Processing %s (%s)...\n", i+1, len(tokenInfos), tokenInfo.Name, tokenInfo.Address)
 
 		// _ = tokenInfo
 
-		fmt.Printf("Read %v tokens from file.\n", tokenInfo.Address)
+		fmt.Printf("[%d/%d] Processing %s...\n", i+1, len(tokenInfos), tokenInfo.Address)
 		token := models.Token{
 			Address: tokenInfo.Address,
 		}
