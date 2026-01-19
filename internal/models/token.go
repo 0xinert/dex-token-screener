@@ -11,6 +11,7 @@ type Token struct {
 
 	// Contract verification
 	Verified bool `db:"verified" json:"verified"`
+	AgeDays  int  `db:"age_days" json:"age_days"`
 
 	// Liquidity metrics
 	LiquidityUSD float64 `db:"liquidity_usd" json:"liquidity_usd"`

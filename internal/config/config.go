@@ -3,6 +3,8 @@ package config
 import (
 	"os"
 	"strconv"
+
+	"github.com/joho/godotenv"
 )
 
 type Config struct {
@@ -25,6 +27,9 @@ type Config struct {
 }
 
 func Load() *Config {
+	// Load .env file if it exists
+	_ = godotenv.Load()
+
 	return &Config{
 		BscScanAPIKey: os.Getenv("BSCSCAN_API_KEY"),
 		DatabaseURL:   os.Getenv("DATABASE_URL"),

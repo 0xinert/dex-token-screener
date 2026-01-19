@@ -38,6 +38,13 @@ type TokenCreationResponse struct {
 	} `json:"result"`
 }
 
+// APIErrorResponse is used when the API returns an error (result is a string)
+type APIErrorResponse struct {
+	Status  string `json:"status"`
+	Message string `json:"message"`
+	Result  string `json:"result"`
+}
+
 type TokenHoldersResponse struct {
 	Status string                 `json:"status"`
 	Result []models.BscScanHolder `json:"result"`
@@ -51,13 +58,14 @@ type TokenTotalSupplyResponse struct {
 func NewBscScanClient(apiKey string) *BscScanClient {
 	return &BscScanClient{
 		apikey:     apiKey,
-		baseURL:    "https://api.etherscan.io/v2/apki",
+		baseURL:    "https://api.etherscan.io/v2/api",
 		httpClient: &http.Client{Timeout: 5 * time.Second},
 	}
 }
 
+// IsContractVerified checks if the contract has source code and ABI and proxy is not set
 func (c *BscScanClient) IsContractVerified(contractAddress string) (bool, error) {
-	url := fmt.Sprintf("%s?address=%s&chainId=56&module=contract&apikey=%s&action=getsourcecode",
+	url := fmt.Sprintf("%s?chainid=56&module=contract&action=getsourcecode&address=%s&apikey=%s",
 		c.baseURL, contractAddress, c.apikey)
 
 	resp, err := c.httpClient.Get(url)
@@ -69,6 +77,13 @@ func (c *BscScanClient) IsContractVerified(contractAddress string) (bool, error)
 	defer resp.Body.Close()
 
 	body, _ := io.ReadAll(resp.Body)
+	fmt.Println("IsContractVerified raw response:", string(body))
+
+	// First check if it's an error response
+	var errResp APIErrorResponse
+	if err := json.Unmarshal(body, &errResp); err == nil && errResp.Status == "0" {
+		return false, fmt.Errorf("API error: %s", errResp.Result)
+	}
 
 	var result ContractSourceResponse
 	if err := json.Unmarshal(body, &result); err != nil {
@@ -80,7 +95,7 @@ func (c *BscScanClient) IsContractVerified(contractAddress string) (bool, error)
 }
 
 func (c *BscScanClient) GetTop10HoldersConcentration(contractAddress string) (float64, error) {
-	url := fmt.Sprintf("%s?&chainId=56&module=token&action=topholders&contractaddress=%s&offet=10&apikey=%s",
+	url := fmt.Sprintf("%s?chainid=56&module=token&action=tokenholderlist&contractaddress=%s&page=1&offset=10&apikey=%s",
 		c.baseURL, contractAddress, c.apikey)
 
 	resp, err := c.httpClient.Get(url)
@@ -125,6 +140,7 @@ func (c *BscScanClient) GetTop10HoldersConcentration(contractAddress string) (fl
 	return (totalTop10Balance / totalsupply) * 100, nil
 }
 
+// IscontractOldEnough checks if the contract is older than 7 days
 func (c *BscScanClient) IsContractOldEnough(contractAddress string) (bool, error) {
 	deplodAt, err := c.GetContractAge(contractAddress)
 	if err != nil {
@@ -142,18 +158,25 @@ func (c *BscScanClient) IsContractOldEnough(contractAddress string) (bool, error
 }
 
 func (c *BscScanClient) GetContractAge(contractAddress string) (time.Time, error) {
-	url := fmt.Sprintf("%s?&chainId=56&module=contract&action=getcontractcreation&contractaddress=%s&apikey=%s",
+	url := fmt.Sprintf("%s?chainid=56&module=contract&action=getcontractcreation&contractaddresses=%s&apikey=%s",
 		c.baseURL, contractAddress, c.apikey)
 
 	resp, err := c.httpClient.Get(url)
 	if err != nil {
-		fmt.Println("Error fetching token holders:", err)
+		fmt.Println("Error fetching contract creation:", err)
 		return time.Time{}, err
 	}
 
 	defer resp.Body.Close()
 
 	body, _ := io.ReadAll(resp.Body)
+	fmt.Println("GetContractAge raw response:", string(body))
+
+	// First check if it's an error response
+	var errResp APIErrorResponse
+	if err := json.Unmarshal(body, &errResp); err == nil && errResp.Status == "0" {
+		return time.Time{}, fmt.Errorf("API error: %s", errResp.Result)
+	}
 
 	var result TokenCreationResponse
 	if err := json.Unmarshal(body, &result); err != nil {
@@ -177,7 +200,7 @@ func (c *BscScanClient) GetContractAge(contractAddress string) (time.Time, error
 }
 
 func (c *BscScanClient) GetTotalSupply(contractAddress string) (float64, error) {
-	url := fmt.Sprintf("%s?&chainId=56&module=state&action=tokensupply&contractaddress=%s&apikey=%s",
+	url := fmt.Sprintf("%s?chainid=56&module=stats&action=tokensupply&contractaddress=%s&apikey=%s",
 		c.baseURL, contractAddress, c.apikey)
 
 	resp, err := c.httpClient.Get(url)
