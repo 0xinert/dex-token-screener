@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"io"
 	"net/http"
+	"strings"
 	"time"
 
 	"github.com/notlelouch/go-interview-practice/DEX-Token-Screener/internal/models"
@@ -16,10 +17,6 @@ type DexScreenerClient struct {
 	httpClient *http.Client
 }
 
-type DexScreenerResponse struct {
-	Pairs []models.DexScreenerPair `json:"pairs"`
-}
-
 func NewDexScreenerClient() *DexScreenerClient {
 	return &DexScreenerClient{
 		baseURL:    "https://api.dexscreener.com",
@@ -28,7 +25,7 @@ func NewDexScreenerClient() *DexScreenerClient {
 }
 
 // GetPairMetrics fetches liquidity and volume data
-func (d *DexScreenerClient) GetPairMetrics(address string) (liquidity, volume float64, fragmentationSafe bool, largetsSingleLiquidityPoolAgeDays float64, err error) {
+func (d *DexScreenerClient) GetPairMetrics(address string) (liquidity, volume float64, isFragmentationSafe bool, largestSingleLiquidityPoolAgeDays float64, err error) {
 	url := fmt.Sprintf("%s/token-pairs/v1/bsc/%s", d.baseURL, address)
 
 	resp, err := d.httpClient.Get(url)
@@ -39,39 +36,48 @@ func (d *DexScreenerClient) GetPairMetrics(address string) (liquidity, volume fl
 
 	body, _ := io.ReadAll(resp.Body)
 
-	var result DexScreenerResponse
-	if err := json.Unmarshal(body, &result); err != nil {
+	var pairs []models.DexScreenerPair
+	if err := json.Unmarshal(body, &pairs); err != nil {
 		return 0, 0, false, 0, err
 	}
 
-	if len(result.Pairs) == 0 {
+	if len(pairs) == 0 {
 		return 0, 0, false, 0, fmt.Errorf("no DEXScreener pairs found for token %s", address)
 	}
 
-	// Filter to keep only USDT pairs
+	// Filter to keep only USDT pairs (case-insensitive address comparison)
+	const usdtAddress = "0x55d398326f99059ff775485246999027b3197955"
 	usdtPairs := make([]models.DexScreenerPair, 0)
-	for _, pair := range result.Pairs {
-		if pair.QuoteToken.Address == "0x55d398326f99059ff775485246999027b3197955" {
+	for _, pair := range pairs {
+		if strings.EqualFold(pair.QuoteToken.Address, usdtAddress) {
 			usdtPairs = append(usdtPairs, pair)
 		}
 	}
-	result.Pairs = usdtPairs
 
-	largetsSingleLiquidityPool := models.DexScreenerPair{}
+	if len(usdtPairs) == 0 {
+		return 0, 0, false, 0, fmt.Errorf("no USDT pairs found for token %s", address)
+	}
+
+	largestSingleLiquidityPool := models.DexScreenerPair{}
 	// Aggregate liquidity and volume across all pairs
-	for _, pair := range result.Pairs {
-		if pair.Liquidity.USD > largetsSingleLiquidityPool.Liquidity.USD {
-			largetsSingleLiquidityPool = pair
+	for _, pair := range usdtPairs {
+		if pair.Liquidity.USD > largestSingleLiquidityPool.Liquidity.USD {
+			largestSingleLiquidityPool = pair
 		}
 		liquidity += pair.Liquidity.USD
 		volume += pair.Volume.H24
 	}
 
-	if largetsSingleLiquidityPool.Liquidity.USD >= 0.5*liquidity {
-		fragmentationSafe = true
+	if liquidity > 10_000_000 { // If >$10M total, fragmentation OK
+		isFragmentationSafe = true
+	} else if largestSingleLiquidityPool.Liquidity.USD >= 0.5*liquidity {
+		isFragmentationSafe = true
 	}
-	// Age of largets single liquidity pool in days
-	largetsSingleLiquidityPoolAgeDays = time.Since(time.Unix(largetsSingleLiquidityPool.PairCreatedAt, 0)).Hours() / 24
 
-	return liquidity, volume, fragmentationSafe, largetsSingleLiquidityPoolAgeDays, nil
+	// fmt.Printf("DEBUG: PairCreatedAt raw: %d\n", largestSingleLiquidityPool.PairCreatedAt)
+	// fmt.Printf("DEBUG: Converted to time: %v\n", time.Unix(largestSingleLiquidityPool.PairCreatedAt/1000, 0))
+	// Age of largest single liquidity pool in days
+	largestSingleLiquidityPoolAgeDays = time.Since(time.Unix(largestSingleLiquidityPool.PairCreatedAt/1000, 0)).Hours() / 24
+
+	return liquidity, volume, isFragmentationSafe, largestSingleLiquidityPoolAgeDays, nil
 }

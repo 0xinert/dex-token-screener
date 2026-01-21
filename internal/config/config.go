@@ -14,9 +14,9 @@ type Config struct {
 	DatabaseURL   string
 
 	// Thresholds
-	MinLiquidityUSD float64
-	MinVolume24h    float64
-	MaxTop10Holders float64
+	MinLiquidityUSD             float64
+	MinVolume24h                float64
+	MaxTop10HolderConcentration float64
 
 	// Scoring weights
 	LiquidityWeight float64
@@ -24,26 +24,27 @@ type Config struct {
 	HolderWeight    float64
 
 	// Score thresholds
-	Threshold float64
+	FeaturedThreshold float64 // ADD THIS
+	VisibleThreshold  float64 // ADD THIS
 }
 
 func Load() *Config {
-	// Load .env file if it exists
 	_ = godotenv.Load()
 
 	return &Config{
 		BscScanAPIKey: os.Getenv("BSCSCAN_API_KEY"),
 		DatabaseURL:   os.Getenv("DATABASE_URL"),
 
-		MinLiquidityUSD: getEnvFloat("MIN_LIQUIDITY_USD", 100000),
-		MinVolume24h:    getEnvFloat("MIN_VOLUME_24H", 10000),
-		MaxTop10Holders: getEnvFloat("MAX_TOP10_HOLDERS", 70),
+		MinLiquidityUSD:             getEnvFloat("MIN_LIQUIDITY_USD", 100000),
+		MinVolume24h:                getEnvFloat("MIN_VOLUME_24H", 10000),
+		MaxTop10HolderConcentration: getEnvFloat("MAX_TOP10_HOLDERS", 70),
 
 		LiquidityWeight: 0.40,
 		VolumeWeight:    0.35,
 		HolderWeight:    0.25,
 
-		Threshold: 70.0,
+		FeaturedThreshold: 70.0, // ADD THIS
+		VisibleThreshold:  50.0, // ADD THIS
 	}
 }
 

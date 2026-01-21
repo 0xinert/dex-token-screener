@@ -8,10 +8,9 @@ import (
 
 	"github.com/notlelouch/go-interview-practice/DEX-Token-Screener/internal/config"
 	"github.com/notlelouch/go-interview-practice/DEX-Token-Screener/internal/contract"
-	"github.com/notlelouch/go-interview-practice/DEX-Token-Screener/internal/models"
+	"github.com/notlelouch/go-interview-practice/DEX-Token-Screener/internal/market"
+	"github.com/notlelouch/go-interview-practice/DEX-Token-Screener/internal/scoring"
 )
-
-// "github.com/notlelouch/go-interview-practice/DEX-Token-Screener/internal/models"
 
 type BasicTokenInfo struct {
 	Address  string `json:"contract_address"`
@@ -21,47 +20,68 @@ type BasicTokenInfo struct {
 }
 
 func main() {
-	// Load configuration
 	cfg := config.Load()
 
-	// Debug: check if API key is loaded
 	if cfg.BscScanAPIKey == "" {
-		fmt.Println("WARNING: BSCSCAN_API_KEY environment variable is not set!")
-	} else {
-		fmt.Printf("API Key loaded (first 8 chars): %s...\n", cfg.BscScanAPIKey[:min(8, len(cfg.BscScanAPIKey))])
+		fmt.Println("ERROR: BSCSCAN_API_KEY not set")
+		return
 	}
 
-	// bscScanClient := contract.NewBscScanClient(cfg.BscScanAPIKey)
 	bscScanClient := contract.NewBscScanClient(cfg.BscScanAPIKey)
+	dexscreenerClient := market.NewDexScreenerClient()
 
 	tokenInfos := readTokens("smallTokensList.json")
 
-	// fmt.Printf("Read %v tokens from file.\n", tokenInfos)
+	fmt.Printf("Token Screening Pipeline\n")
+	fmt.Printf("Total: %d tokens\n\n", len(tokenInfos))
+
+	safeCount := 0
 
 	for i, tokenInfo := range tokenInfos {
-		// fmt.Printf("[%d/%d] Processing %s (%s)...\n", i+1, len(tokenInfos), tokenInfo.Name, tokenInfo.Address)
+		fmt.Printf("[%d/%d] %s (%s)\n", i+1, len(tokenInfos), tokenInfo.Symbol, tokenInfo.Address)
 
-		// _ = tokenInfo
-
-		fmt.Printf("[%d/%d] Processing %s...\n", i+1, len(tokenInfos), tokenInfo.Address)
-		token := models.Token{
-			Address: tokenInfo.Address,
-		}
-		_ = token
-
-		isVerified, err := bscScanClient.IsContractVerified(tokenInfo.Address)
+		// Contract verification
+		verified, err := bscScanClient.IsContractVerified(tokenInfo.Address)
 		if err != nil {
-			fmt.Println("Error checking contract verification:", err)
+			fmt.Printf("  ERROR: %v\n\n", err)
+			continue
 		}
 
-		// Note: GetContractAge requires paid Etherscan API for BSC
-		// Skipping age check for now
-		// age, err := bscScanClient.GetContractAge(tokenInfo.Address)
-		// isContractOldEnough, _ := bscScanClient.IsContractOldEnough(tokenInfo.Address)
+		// Liquidity metrics
+		liq, vol, fragSafe, poolAge, err := dexscreenerClient.GetPairMetrics(tokenInfo.Address)
+		if err != nil {
+			fmt.Printf("  ERROR: %v\n\n", err)
+			continue
+		}
 
-		fmt.Printf("Token: %s, Contract verified: %t\n", tokenInfo.Name, isVerified)
+		// TODO: Implement holder concentration
+		holderConc := 20.0
+
+		// Calculate score
+		result, safe := scoring.Scorer(verified, liq, vol, holderConc, fragSafe, poolAge)
+
+		// Output
+		fmt.Printf("  Verified: %t | Liq: $%.0f | Vol: $%.0f | Age: %.1fd | Frag: %t\n",
+			verified, liq, vol, poolAge, fragSafe)
+		fmt.Printf("  Score: %.2f (L:%.0f V:%.0f H:%.0f)\n",
+			result.CompositeScore, result.LiquidityScore, result.VolumeScore, result.HolderScore)
+
+		if safe {
+			safeCount++
+			status := "VISIBLE"
+			if result.CompositeScore >= cfg.FeaturedThreshold {
+				status = "FEATURED"
+			}
+			fmt.Printf("  Result: SAFE - %s\n\n", status)
+		} else {
+			fmt.Printf("  Result: REJECTED - %s\n\n", result.FailureReasons[0])
+		}
+
 		time.Sleep(2 * time.Second)
 	}
+
+	fmt.Printf("Summary: %d/%d passed (%.1f%%)\n",
+		safeCount, len(tokenInfos), float64(safeCount)/float64(len(tokenInfos))*100)
 }
 
 func readTokens(fileName string) []BasicTokenInfo {
@@ -72,9 +92,6 @@ func readTokens(fileName string) []BasicTokenInfo {
 	}
 
 	var tokens []BasicTokenInfo
-	if err := json.Unmarshal(data, &tokens); err != nil {
-		fmt.Println("Error parsing JSON:", err)
-		return nil
-	}
+	json.Unmarshal(data, &tokens)
 	return tokens
 }
