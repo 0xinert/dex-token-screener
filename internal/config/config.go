@@ -1,3 +1,4 @@
+// Package config provides configuration curerntly for bscscan and dexscreener
 package config
 
 import (

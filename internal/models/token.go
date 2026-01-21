@@ -1,3 +1,4 @@
+// Package models contains data structures for BSC token analysis
 package models
 
 import "time"
@@ -11,7 +12,6 @@ type Token struct {
 
 	// Contract verification
 	Verified bool `db:"verified" json:"verified"`
-	AgeDays  int  `db:"age_days" json:"age_days"`
 
 	// Liquidity metrics
 	LiquidityUSD float64 `db:"liquidity_usd" json:"liquidity_usd"`
@@ -32,19 +32,32 @@ type Token struct {
 
 // DexScreenerPair represents a trading pair from DexScreener
 type DexScreenerPair struct {
+	PairAddress   string `json:"pairAddress"`
+	DexID         string `json:"dexId"`
+	PairCreatedAt int64  `json:"pairCreatedAt"`
+
+	BaseToken struct {
+		Address string `json:"address"`
+		Name    string `json:"name"`
+		Symbol  string `json:"symbol"`
+	} `json:"baseToken"`
+
+	QuoteToken struct {
+		Address string `json:"address"`
+		Symbol  string `json:"symbol"`
+	} `json:"quoteToken"`
+
 	Liquidity struct {
 		USD float64 `json:"usd"`
 	} `json:"liquidity"`
+
 	Volume struct {
 		H24 float64 `json:"h24"`
 	} `json:"volume"`
-	// ChainID     string `json:"chainId"`
-	// PairAddress string `json:"pairAddress"`
-	// BaseToken   struct {
-	// 	Address string `json:"address"`
-	// 	Name    string `json:"name"`
-	// 	Symbol  string `json:"symbol"`
-	// } `json:"baseToken"`
+
+	PriceChange struct {
+		H24 float64 `json:"h24"`
+	} `json:"priceChange"`
 }
 
 // BscScanHolder represents token holder data

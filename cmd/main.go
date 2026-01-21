@@ -7,8 +7,8 @@ import (
 	"time"
 
 	"github.com/notlelouch/go-interview-practice/DEX-Token-Screener/internal/config"
+	"github.com/notlelouch/go-interview-practice/DEX-Token-Screener/internal/contract"
 	"github.com/notlelouch/go-interview-practice/DEX-Token-Screener/internal/models"
-	"github.com/notlelouch/go-interview-practice/DEX-Token-Screener/internal/scanner"
 )
 
 // "github.com/notlelouch/go-interview-practice/DEX-Token-Screener/internal/models"
@@ -31,7 +31,8 @@ func main() {
 		fmt.Printf("API Key loaded (first 8 chars): %s...\n", cfg.BscScanAPIKey[:min(8, len(cfg.BscScanAPIKey))])
 	}
 
-	bscScanClient := scanner.NewBscScanClient(cfg.BscScanAPIKey)
+	// bscScanClient := contract.NewBscScanClient(cfg.BscScanAPIKey)
+	bscScanClient := contract.NewBscScanClient(cfg.BscScanAPIKey)
 
 	tokenInfos := readTokens("smallTokensList.json")
 
