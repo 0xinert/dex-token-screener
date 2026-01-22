@@ -30,7 +30,8 @@ func main() {
 	bscScanClient := contract.NewBscScanClient(cfg.BscScanAPIKey)
 	dexscreenerClient := market.NewDexScreenerClient()
 
-	tokenInfos := readTokens("smallGoodTokensList.json")
+	// tokenInfos := readTokens("smallGoodTokensList.json")
+	tokenInfos := readTokens("output.json")
 
 	fmt.Printf("Token Screening Pipeline\n")
 	fmt.Printf("Total: %d tokens\n\n", len(tokenInfos))

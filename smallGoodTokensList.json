@@ -28,5 +28,101 @@
     "decimals": 8,
     "name": "Binance-Peg Dogecoin",
     "symbol": "DOGE"
+  },
+  {
+    "contract_address": "0xE77223430bfb8e497a3c8E126cb5Ad5275934444",
+    "decimals": 18,
+    "name": "1",
+    "symbol": "1"
+  },
+  {
+    "contract_address": "0x0A43fC31a73013089DF59194872Ecae4cAe14444",
+    "decimals": 18,
+    "name": "4",
+    "symbol": "4"
+  },
+  {
+    "contract_address": "0x33c7d0387e25964F65497cC92637C0eC32944444",
+    "decimals": 18,
+    "name": "8",
+    "symbol": "8"
+  },
+  {
+    "contract_address": "0x834BAf4f7832Cc3C00734DDb2e0c61C68d975822",
+    "decimals": 18,
+    "name": "Semantic Layer",
+    "symbol": "42"
+  },
+  {
+    "contract_address": "0x73cf73c2503154de4dc12067546aa9357dadaff2",
+    "decimals": 18,
+    "name": "42-coin",
+    "symbol": "42"
+  },
+  {
+    "contract_address": "0xfcf50eebcf73669922bb498c4f1fd7ba35904444",
+    "decimals": 18,
+    "name": "TOKEN 2049",
+    "symbol": "2049"
+  },
+  {
+    "contract_address": "0x13e1070e3a388e53ec35480ff494538f9ffc5b8d",
+    "decimals": 18,
+    "name": "MyBricks",
+    "symbol": "$BRICKS"
+  },
+  {
+    "contract_address": "0x7CFAAAd25c3e791cC68AeFa28777cDf7Cc666F86",
+    "decimals": 18,
+    "name": "$FLY",
+    "symbol": "$FLY"
+  },
+  {
+    "contract_address": "0xdbd1ed1fa8ba9eadaa38da012a4180a8f4af3f93",
+    "decimals": 18,
+    "name": "$GOLD",
+    "symbol": "$GOLD"
+  },
+  {
+    "contract_address": "0x71e67b8d88718d113fc7edbd95f7ca380222b3c6",
+    "decimals": 18,
+    "name": "Humanize",
+    "symbol": "$HMT"
+  },
+  {
+    "contract_address": "0xab725d0a10c3f24725c89f5765ae5794a26c1336",
+    "decimals": 18,
+    "name": "Inery",
+    "symbol": "$INR"
+  },
+  {
+    "contract_address": "0x95dB59F8AeeeD345CFb3DD87762DE37c77B8F520",
+    "decimals": 18,
+    "name": "Icopax",
+    "symbol": "$IPAX"
+  },
+  {
+    "contract_address": "0x82282e76f902bCF0f01690A532Ea5A238BdC414b",
+    "decimals": 18,
+    "name": "MMDAO",
+    "symbol": "$MMDAO"
+  },
+  {
+    "contract_address": "0xE72D0888b108d2FafF5714C28c493C48808DFe52",
+    "decimals": 18,
+    "name": "Pepe Grow",
+    "symbol": "$PG"
+  },
+  {
+    "contract_address": "0x7FA58Cb42fc030D702C2F61559e4744AA756cBBA",
+    "decimals": 18,
+    "name": "SILVER",
+    "symbol": "$SILVER"
+  },
+  {
+    "contract_address": "0x7db54758503c25200b331131c219acd64cfa74c8",
+    "decimals": 18,
+    "name": "Classic USDC",
+    "symbol": "$USDC"
   }
 ]
