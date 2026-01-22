@@ -68,7 +68,7 @@ func (d *DexScreenerClient) GetPairMetrics(address string) (liquidity, volume fl
 		volume += pair.Volume.H24
 	}
 
-	if liquidity > 10_000_000 { // If >$10M total, fragmentation OK
+	if liquidity > 2_000_000 { // If >$10M total, fragmentation OK
 		isFragmentationSafe = true
 	} else if largestSingleLiquidityPool.Liquidity.USD >= 0.5*liquidity {
 		isFragmentationSafe = true

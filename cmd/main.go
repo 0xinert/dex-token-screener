@@ -30,7 +30,7 @@ func main() {
 	bscScanClient := contract.NewBscScanClient(cfg.BscScanAPIKey)
 	dexscreenerClient := market.NewDexScreenerClient()
 
-	tokenInfos := readTokens("smallTokensList.json")
+	tokenInfos := readTokens("smallGoodTokensList.json")
 
 	fmt.Printf("Token Screening Pipeline\n")
 	fmt.Printf("Total: %d tokens\n\n", len(tokenInfos))
@@ -58,13 +58,25 @@ func main() {
 		holderConc := 20.0
 
 		// Calculate score
-		result, safe := scoring.Scorer(verified, liq, vol, holderConc, fragSafe, poolAge)
+		result, safe := scoring.Scorer(
+			verified,
+			liq,
+			vol,
+			holderConc,
+			fragSafe,
+			poolAge,
+		)
 
 		// Output
 		fmt.Printf("  Verified: %t | Liq: $%.0f | Vol: $%.0f | Age: %.1fd | Frag: %t\n",
 			verified, liq, vol, poolAge, fragSafe)
-		fmt.Printf("  Score: %.2f (L:%.0f V:%.0f H:%.0f)\n",
-			result.CompositeScore, result.LiquidityScore, result.VolumeScore, result.HolderScore)
+		fmt.Printf("  Score: %.2f (L:%.0f V:%.0f H:%.0f F:%.0f)\n",
+			result.CompositeScore,
+			result.LiquidityScore,
+			result.VolumeScore,
+			result.HolderScore,
+			result.FragmentationScore,
+		)
 
 		if safe {
 			safeCount++
@@ -72,6 +84,12 @@ func main() {
 			if result.CompositeScore >= cfg.FeaturedThreshold {
 				status = "FEATURED"
 			}
+
+			// Add fragmentation warning
+			if !fragSafe {
+				status += " ⚠️ High slippage risk"
+			}
+
 			fmt.Printf("  Result: SAFE - %s\n\n", status)
 		} else {
 			fmt.Printf("  Result: REJECTED - %s\n\n", result.FailureReasons[0])

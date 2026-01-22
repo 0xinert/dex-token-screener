@@ -2,18 +2,18 @@ package scoring
 
 import (
 	"fmt"
-	"math"
 
 	"github.com/notlelouch/go-interview-practice/DEX-Token-Screener/internal/config"
 )
 
 type TokenScore struct {
-	LiquidityScore float64
-	VolumeScore    float64
-	HolderScore    float64
-	CompositeScore float64
-	IsSafe         bool
-	FailureReasons []string
+	LiquidityScore     float64
+	VolumeScore        float64
+	HolderScore        float64
+	FragmentationScore float64
+	CompositeScore     float64
+	IsSafe             bool
+	FailureReasons     []string
 }
 
 func Scorer(
@@ -55,11 +55,6 @@ func Scorer(
 			fmt.Sprintf("Holder concentration too high: %.2f%% > %.2f%%", top10HoldersPercentage, cfg.MaxTop10HolderConcentration))
 	}
 
-	if !isFragmentationSafe {
-		result.IsSafe = false
-		result.FailureReasons = append(result.FailureReasons, "Liquidity too fragmented")
-	}
-
 	if largestSingleLiquidityPoolAgeDays < 7.0 {
 		result.IsSafe = false
 		result.FailureReasons = append(result.FailureReasons,
@@ -76,19 +71,29 @@ func Scorer(
 	result.LiquidityScore = calculateLiquidityScore(aggregatedLiquidityUSD)
 	result.VolumeScore = calculateVolumeScore(aggregatedVolume24hUSD, aggregatedLiquidityUSD)
 	result.HolderScore = calculateHolderScore(top10HoldersPercentage)
+	result.FragmentationScore = calculateFragmentationScore(isFragmentationSafe)
 
 	// Weighted composite score
 	result.CompositeScore = (result.LiquidityScore*cfg.LiquidityWeight +
 		result.VolumeScore*cfg.VolumeWeight +
-		result.HolderScore*cfg.HolderWeight)
+		result.HolderScore*cfg.HolderWeight +
+		result.FragmentationScore*cfg.FragmentationWeight)
 
 	return result, true
 }
 
 func calculateLiquidityScore(liquidityUSD float64) float64 {
-	// $100k = 50, $1M = 100, $10M = 100
-	score := math.Min(100, (liquidityUSD/1_000_000)*100)
-	return score
+	if liquidityUSD >= 5_000_000 {
+		return 100
+	} else if liquidityUSD >= 1_000_000 {
+		return 80 + ((liquidityUSD-1_000_000)/4_000_000)*20 // 80-100
+	} else if liquidityUSD >= 500_000 {
+		return 60 + ((liquidityUSD-500_000)/500_000)*20 // 60-80
+	} else if liquidityUSD >= 100_000 {
+		return 30 + ((liquidityUSD-100_000)/400_000)*30 // 30-60
+	} else {
+		return 0
+	}
 }
 
 func calculateVolumeScore(volume24h, liquidityUSD float64) float64 {
@@ -96,29 +101,55 @@ func calculateVolumeScore(volume24h, liquidityUSD float64) float64 {
 		return 0
 	}
 
-	// Turnover ratio (volume/liquidity)
-	turnover := volume24h / liquidityUSD
+	// For HIGH liquidity tokens, high turnover is GOOD
+	if liquidityUSD >= 5_000_000 {
+		// Major tokens: reward high activity
+		if volume24h >= 50_000_000 { // $50M+ daily
+			return 100
+		} else if volume24h >= 10_000_000 { // $10M+
+			return 95
+		} else if volume24h >= 1_000_000 { // $1M+
+			return 85
+		} else {
+			turnover := volume24h / liquidityUSD
+			if turnover >= 0.10 { // 10%+
+				return 80
+			}
+			return 60 // Low activity on major token
+		}
+	}
 
-	// Ideal: 5-20% daily turnover
-	if turnover >= 0.05 && turnover <= 0.20 {
+	// For MEDIUM liquidity ($500K-$5M): traditional turnover analysis
+	turnover := volume24h / liquidityUSD
+	if turnover >= 0.05 && turnover <= 0.30 { // 5-30%
 		return 100
-	} else if turnover > 0.20 {
-		return 70 // High volatility
+	} else if turnover > 0.30 && turnover <= 1.0 { // 30-100%
+		return 85
+	} else if turnover > 1.0 { // >100% (but <$5M liq = risky)
+		return 60
+	} else if turnover >= 0.02 {
+		return 50 + (turnover-0.02)*1666
 	} else {
-		// Scale low turnover: 0-5% maps to 0-100
-		return math.Min(100, turnover*2000)
+		return turnover * 2500
 	}
 }
 
 func calculateHolderScore(top10Percentage float64) float64 {
 	// Lower concentration = better
-	if top10Percentage < 30 {
+	if top10Percentage < 20 {
 		return 100
-	} else if top10Percentage < 50 {
-		return 80
-	} else if top10Percentage < 70 {
-		return 50
+	} else if top10Percentage < 40 {
+		return 85
+	} else if top10Percentage < 60 {
+		return 60
 	} else {
-		return 20
+		return 30
 	}
+}
+
+func calculateFragmentationScore(isFragmentationSafe bool) float64 {
+	if isFragmentationSafe {
+		return 100
+	}
+	return 40 // Penalty but not elimination
 }

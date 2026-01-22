@@ -19,9 +19,10 @@ type Config struct {
 	MaxTop10HolderConcentration float64
 
 	// Scoring weights
-	LiquidityWeight float64
-	VolumeWeight    float64
-	HolderWeight    float64
+	LiquidityWeight     float64
+	VolumeWeight        float64
+	HolderWeight        float64
+	FragmentationWeight float64
 
 	// Score thresholds
 	FeaturedThreshold float64 // ADD THIS
@@ -39,9 +40,10 @@ func Load() *Config {
 		MinVolume24h:                getEnvFloat("MIN_VOLUME_24H", 10000),
 		MaxTop10HolderConcentration: getEnvFloat("MAX_TOP10_HOLDERS", 70),
 
-		LiquidityWeight: 0.40,
-		VolumeWeight:    0.35,
-		HolderWeight:    0.25,
+		LiquidityWeight:     0.35,
+		VolumeWeight:        0.30,
+		HolderWeight:        0.25,
+		FragmentationWeight: 0.10,
 
 		FeaturedThreshold: 70.0, // ADD THIS
 		VisibleThreshold:  50.0, // ADD THIS

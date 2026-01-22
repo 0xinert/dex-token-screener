@@ -12,12 +12,6 @@
     "symbol": "CAKE"
   },
   {
-    "contract_address": "0x7130d2a12b9bcdfa4e4f2634d864a1ee1ce3ead9c",
-    "decimals": 18,
-    "name": "Binance-Peg Bitcoin",
-    "symbol": "BTCB"
-  },
-  {
     "contract_address": "0x2170ed0880ac9a755fd29b2688956bd959f933f8",
     "decimals": 18,
     "name": "Binance-Peg Ethereum",
@@ -28,12 +22,6 @@
     "decimals": 18,
     "name": "Binance-Peg Chainlink",
     "symbol": "LINK"
-  },
-  {
-    "contract_address": "0x3ee2200efb3400fabb9aacf31297cbd1d435d47",
-    "decimals": 18,
-    "name": "Binance-Peg Cardano",
-    "symbol": "ADA"
   },
   {
     "contract_address": "0xba2ae424d960c26247dd6c32edc70b295c744c43",
