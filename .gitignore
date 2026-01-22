@@ -1,1 +1,7 @@
 .env
+
+# Ignore the entire bin directory
+bin/
+
+# Or if you only want to ignore specific files in bin:
+bin/dex-token-screener-*
