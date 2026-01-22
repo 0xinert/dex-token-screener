@@ -1,0 +1,14 @@
+Token Screening Pipeline - 2026-01-22 17:51:19
+Total: 21 tokens
+
+[1/21] WBNB (0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c)
+  Verified: true | Liq: $77629280 | Vol: $436842722 | Age: 20475.5d | Frag: true
+  Score: 96.25 (L:100 V:100 H:85 F:100)
+  Result: SAFE - FEATURED
+
+[2/21] CAKE (0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82)
+  Verified: true | Liq: $14525102 | Vol: $3516916 | Age: 1027.0d | Frag: true
+  Score: 91.75 (L:100 V:85 H:85 F:100)
+  Result: SAFE - FEATURED
+
+[3/21] ETH (0x2170ed0880ac9a755fd29b2688956bd959f933f8)

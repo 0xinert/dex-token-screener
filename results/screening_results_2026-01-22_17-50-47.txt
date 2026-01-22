@@ -1,0 +1,139 @@
+Token Screening Pipeline - 2026-01-22 17:50:47
+Total: 21 tokens
+
+[1/21] WBNB (0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c)
+  Verified: true | Liq: $77614474 | Vol: $437364027 | Age: 20475.5d | Frag: true
+  Score: 96.25 (L:100 V:100 H:85 F:100)
+  Result: SAFE - FEATURED
+
+[2/21] CAKE (0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82)
+  Verified: true | Liq: $14525109 | Vol: $3516912 | Age: 1027.0d | Frag: true
+  Score: 91.75 (L:100 V:85 H:85 F:100)
+  Result: SAFE - FEATURED
+
+[3/21] ETH (0x2170ed0880ac9a755fd29b2688956bd959f933f8)
+  Verified: true | Liq: $8945506 | Vol: $22124320 | Age: 1017.0d | Frag: true
+  Score: 94.75 (L:100 V:95 H:85 F:100)
+  Result: SAFE - FEATURED
+
+[4/21] LINK (0xf8a0bf9cf54bb92f17374d9e9a321e6a111a51bd)
+  Verified: true | Liq: $141771 | Vol: $27754 | Age: 1012.7d | Frag: false
+  Score: 66.85 (L:33 V:100 H:85 F:40)
+  Result: SAFE - VISIBLE ⚠️ High slippage risk
+
+[5/21] DOGE (0xba2ae424d960c26247dd6c32edc70b295c744c43)
+  Verified: false | Liq: $548130 | Vol: $57245 | Age: 1024.7d | Frag: true
+  Score: 0.00 (L:0 V:0 H:0 F:0)
+  Result: REJECTED - Contract not verified
+
+[6/21] 1 (0xE77223430bfb8e497a3c8E126cb5Ad5275934444)
+  ERROR: no USDT pairs found for token 0xE77223430bfb8e497a3c8E126cb5Ad5275934444
+
+[7/21] 4 (0x0A43fC31a73013089DF59194872Ecae4cAe14444)
+  Verified: true | Liq: $325043 | Vol: $859641 | Age: 113.1d | Frag: true
+  Score: 65.66 (L:47 V:60 H:85 F:100)
+  Result: SAFE - VISIBLE
+
+[8/21] 8 (0x33c7d0387e25964F65497cC92637C0eC32944444)
+  ERROR: no USDT pairs found for token 0x33c7d0387e25964F65497cC92637C0eC32944444
+
+[9/21] 42 (0x834BAf4f7832Cc3C00734DDb2e0c61C68d975822)
+  ERROR: no DEXScreener pairs found for token 0x834BAf4f7832Cc3C00734DDb2e0c61C68d975822
+
+[10/21] 42 (0x73cf73c2503154de4dc12067546aa9357dadaff2)
+  Verified: true | Liq: $6805 | Vol: $9 | Age: 189.1d | Frag: true
+  Score: 0.00 (L:0 V:0 H:0 F:0)
+  Result: REJECTED - Liquidity too low: $6805.28 < $100000.00
+
+[11/21] 2049 (0xfcf50eebcf73669922bb498c4f1fd7ba35904444)
+  ERROR: no USDT pairs found for token 0xfcf50eebcf73669922bb498c4f1fd7ba35904444
+
+[12/21] $BRICKS (0x13e1070e3a388e53ec35480ff494538f9ffc5b8d)
+  ERROR: no USDT pairs found for token 0x13e1070e3a388e53ec35480ff494538f9ffc5b8d
+
+[13/21] $FLY (0x7CFAAAd25c3e791cC68AeFa28777cDf7Cc666F86)
+  ERROR: no USDT pairs found for token 0x7CFAAAd25c3e791cC68AeFa28777cDf7Cc666F86
+
+[14/21] $GOLD (0xdbd1ed1fa8ba9eadaa38da012a4180a8f4af3f93)
+  ERROR: no USDT pairs found for token 0xdbd1ed1fa8ba9eadaa38da012a4180a8f4af3f93
+
+[15/21] $HMT (0x71e67b8d88718d113fc7edbd95f7ca380222b3c6)
+  ERROR: no DEXScreener pairs found for token 0x71e67b8d88718d113fc7edbd95f7ca380222b3c6
+
+[16/21] $INR (0xab725d0a10c3f24725c89f5765ae5794a26c1336)
+  ERROR: no USDT pairs found for token 0xab725d0a10c3f24725c89f5765ae5794a26c1336
+
+[17/21] $IPAX (0x95dB59F8AeeeD345CFb3DD87762DE37c77B8F520)
+  Verified: true | Liq: $831 | Vol: $357 | Age: 36.0d | Frag: true
+  Score: 0.00 (L:0 V:0 H:0 F:0)
+  Result: REJECTED - Liquidity too low: $831.13 < $100000.00
+
+[18/21] $MMDAO (0x82282e76f902bCF0f01690A532Ea5A238BdC414b)
+  ERROR: no DEXScreener pairs found for token 0x82282e76f902bCF0f01690A532Ea5A238BdC414b
+
+[19/21] $PG (0xE72D0888b108d2FafF5714C28c493C48808DFe52)
+  ERROR: no DEXScreener pairs found for token 0xE72D0888b108d2FafF5714C28c493C48808DFe52
+
+[20/21] $SILVER (0x7FA58Cb42fc030D702C2F61559e4744AA756cBBA)
+  ERROR: no USDT pairs found for token 0x7FA58Cb42fc030D702C2F61559e4744AA756cBBA
+
+[21/21] $USDC (0x7db54758503c25200b331131c219acd64cfa74c8)
+  Verified: true | Liq: $273 | Vol: $5 | Age: 560.4d | Frag: true
+  Score: 0.00 (L:0 V:0 H:0 F:0)
+  Result: REJECTED - Liquidity too low: $273.04 < $100000.00
+
+
+= SCREENING SUMMARY =
+
+Total Tokens Processed: 21
+
+Data Availability:
+  • Tokens with errors: 12 (57.1%)
+    - No USDT pairs: 8
+    - Not on DexScreener: 4
+    - Other errors: 0
+  • Tokens evaluated: 9 (42.9%)
+
+Evaluation Results:
+  • PASSED: 5 (55.6% of evaluated)
+  • FAILED: 4 (44.4% of evaluated)
+
+Final Whitelisted Tokens: 5/21 (23.8% of total)
+
+
+= DETAILED BREAKDOWN =
+
+PASSED TOKENS (5):
+Symbol | Address | Score | Liquidity | Volume
+-
+WBNB | 0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c | 96.25 | $77614474 | $437364027
+CAKE | 0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82 | 91.75 | $14525109 | $3516912
+ETH | 0x2170ed0880ac9a755fd29b2688956bd959f933f8 | 94.75 | $8945506 | $22124320
+LINK | 0xf8a0bf9cf54bb92f17374d9e9a321e6a111a51bd | 66.85 | $141771 | $27754
+4 | 0x0A43fC31a73013089DF59194872Ecae4cAe14444 | 65.66 | $325043 | $859641
+
+
+FAILED TOKENS (4):
+Symbol | Address | Reason
+-
+DOGE | 0xba2ae424d960c26247dd6c32edc70b295c744c43 | Contract not verified
+42 | 0x73cf73c2503154de4dc12067546aa9357dadaff2 | Liquidity too low: $6805.28 < $100000.00
+$IPAX | 0x95dB59F8AeeeD345CFb3DD87762DE37c77B8F520 | Liquidity too low: $831.13 < $100000.00
+$USDC | 0x7db54758503c25200b331131c219acd64cfa74c8 | Liquidity too low: $273.04 < $100000.00
+
+
+ERROR TOKENS (showing first 50 of 12):
+Symbol | Address | Error
+-
+1 | 0xE77223430bfb8e497a3c8E126cb5Ad5275934444 | no USDT pairs found for token 0xE77223430bfb8e497a3c8E126cb5Ad5275934444
+8 | 0x33c7d0387e25964F65497cC92637C0eC32944444 | no USDT pairs found for token 0x33c7d0387e25964F65497cC92637C0eC32944444
+42 | 0x834BAf4f7832Cc3C00734DDb2e0c61C68d975822 | no DEXScreener pairs found for token 0x834BAf4f7832Cc3C00734DDb2e0c61C68d975822
+2049 | 0xfcf50eebcf73669922bb498c4f1fd7ba35904444 | no USDT pairs found for token 0xfcf50eebcf73669922bb498c4f1fd7ba35904444
+$BRICKS | 0x13e1070e3a388e53ec35480ff494538f9ffc5b8d | no USDT pairs found for token 0x13e1070e3a388e53ec35480ff494538f9ffc5b8d
+$FLY | 0x7CFAAAd25c3e791cC68AeFa28777cDf7Cc666F86 | no USDT pairs found for token 0x7CFAAAd25c3e791cC68AeFa28777cDf7Cc666F86
+$GOLD | 0xdbd1ed1fa8ba9eadaa38da012a4180a8f4af3f93 | no USDT pairs found for token 0xdbd1ed1fa8ba9eadaa38da012a4180a8f4af3f93
+$HMT | 0x71e67b8d88718d113fc7edbd95f7ca380222b3c6 | no DEXScreener pairs found for token 0x71e67b8d88718d113fc7edbd95f7ca380222b3c6
+$INR | 0xab725d0a10c3f24725c89f5765ae5794a26c1336 | no USDT pairs found for token 0xab725d0a10c3f24725c89f5765ae5794a26c1336
+$MMDAO | 0x82282e76f902bCF0f01690A532Ea5A238BdC414b | no DEXScreener pairs found for token 0x82282e76f902bCF0f01690A532Ea5A238BdC414b
+$PG | 0xE72D0888b108d2FafF5714C28c493C48808DFe52 | no DEXScreener pairs found for token 0xE72D0888b108d2FafF5714C28c493C48808DFe52
+$SILVER | 0x7FA58Cb42fc030D702C2F61559e4744AA756cBBA | no USDT pairs found for token 0x7FA58Cb42fc030D702C2F61559e4744AA756cBBA
