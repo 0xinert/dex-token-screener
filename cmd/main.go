@@ -54,7 +54,7 @@ func main() {
 	bscScanClient := contract.NewBscScanClient(cfg.BscScanAPIKey)
 	dexscreenerClient := market.NewDexScreenerClient()
 
-	tokenInfos := readTokens("tokenData/smallGoodTokensList.json")
+	tokenInfos := readTokens("tokenData/output.json")
 
 	// Create output file
 	outputFile, err := os.Create(fmt.Sprintf("./results/screening_results_%s.txt", time.Now().Format("2006-01-02_15-04-05")))
