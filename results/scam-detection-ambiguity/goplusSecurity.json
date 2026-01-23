@@ -1,0 +1,150 @@
+{
+  "code": 1,
+  "message": "OK",
+  "result": {
+    "0x9beee89723ceec27d7c2834bec6834208ffdc202": {
+      "buy_tax": "0",
+      "cannot_buy": "0",
+      "cannot_sell_all": "0",
+      "creator_address": "0xbb0158c61d720ae656d47ec66333fa0f99902486",
+      "creator_balance": "0.1",
+      "creator_percent": "0.000000",
+      "dex": [
+        {
+          "liquidity_type": "UniV3",
+          "name": "PancakeV3",
+          "liquidity": "434941.347000827888495714261632",
+          "pair": "0x7192966c6d3ab630ee60dbd4c1b39e9e8267f8cf"
+        },
+        {
+          "liquidity_type": "UniV4",
+          "name": "UniswapV4",
+          "liquidity": "47.564246697281409637148088",
+          "pool_manager": "0x28e2ea090877bf75740558f6bfb36a5ffee9e9df",
+          "pair": "0xae80416859159fa7629356064be950813fd4599b029c78fdd6092d0ce00551ab"
+        },
+        {
+          "liquidity_type": "UniV3",
+          "name": "PancakeV3",
+          "liquidity": "0.576049456798462999826100",
+          "pair": "0x84d66553391ecaa03b39a9749a45eb173619de33"
+        }
+      ],
+      "holder_count": "51445",
+      "holders": [
+        {
+          "address": "0x000000000000000000000000000000000000dead",
+          "tag": "",
+          "is_contract": 0,
+          "balance": "19142329",
+          "percent": "0.342945226313465277",
+          "is_locked": 1
+        },
+        {
+          "address": "0xc3121c4ca7402922e025e62e9bb4d5b244303878",
+          "tag": "",
+          "is_contract": 0,
+          "balance": "10707160.269761238442031729",
+          "percent": "0.191824594692098952",
+          "is_locked": 0
+        },
+        {
+          "address": "0x7192966c6d3ab630ee60dbd4c1b39e9e8267f8cf",
+          "tag": "PancakeV3",
+          "is_contract": 1,
+          "balance": "6556048.776650362616055231",
+          "percent": "0.117455176505976664",
+          "is_locked": 0
+        },
+        {
+          "address": "0x1c961a18882661dc2aea540108a1165dfa69ec3b",
+          "tag": "",
+          "is_contract": 1,
+          "balance": "6390933.4167123485527436",
+          "percent": "0.114497045106094680",
+          "is_locked": 0
+        },
+        {
+          "address": "0xdf3f568087d9fd4e5e97bda1832a04acf743cc61",
+          "tag": "",
+          "is_contract": 0,
+          "balance": "3701000",
+          "percent": "0.066305426188534059",
+          "is_locked": 0
+        },
+        {
+          "address": "0x3b47b6a52e2c5bd4ca23ef7295af7c435e63fc92",
+          "tag": "",
+          "is_contract": 0,
+          "balance": "2610274.768972217985240163",
+          "percent": "0.046764490955385083",
+          "is_locked": 0
+        },
+        {
+          "address": "0x74e3094b17fdc4e3e82c4da96ec4b0513dc7df98",
+          "tag": "",
+          "is_contract": 1,
+          "balance": "1391257.00000000000000005",
+          "percent": "0.024925125188538592",
+          "is_locked": 0
+        },
+        {
+          "address": "0x128463a60784c4d3f46c23af3f65ed859ba87974",
+          "tag": "",
+          "is_contract": 1,
+          "balance": "1389334.475893330462017289",
+          "percent": "0.024890682124434173",
+          "is_locked": 0
+        },
+        {
+          "address": "0x73d8bd54f7cf5fab43fe4ef40a62d390644946db",
+          "tag": "",
+          "is_contract": 1,
+          "balance": "804879.551441685249483965",
+          "percent": "0.014419854549791154",
+          "is_locked": 0
+        },
+        {
+          "address": "0xa3a0f955352edae504df20401117d5d5940a2ae1",
+          "tag": "",
+          "is_contract": 0,
+          "balance": "358838.642857758927358458",
+          "percent": "0.006428789286030496",
+          "is_locked": 0
+        }
+      ],
+      "honeypot_with_same_creator": "0",
+      "is_in_dex": "1",
+      "is_open_source": "1",
+      "is_proxy": "1",
+      "lp_holder_count": "1",
+      "lp_holders": [
+        {
+          "address": "0x3b47b6a52e2c5bd4ca23ef7295af7c435e63fc92",
+          "tag": "",
+          "value": "435002.934590294830593669584602",
+          "is_contract": 0,
+          "balance": "1629358.403069305523451289",
+          "percent": "1.000000000000000000",
+          "NFT_list": [
+            {
+              "value": "435002.934590294830593669584602",
+              "NFT_id": "3668394",
+              "amount": "1629358.403069305523451289",
+              "in_effect": "1",
+              "NFT_percentage": "1.000000000000000000"
+            }
+          ],
+          "is_locked": 0
+        }
+      ],
+      "lp_total_supply": "1629358.4030693057",
+      "owner_address": "",
+      "sell_tax": "0",
+      "token_name": "AVL",
+      "token_symbol": "AVL",
+      "total_supply": "55817452.850337",
+      "transfer_tax": "0"
+    }
+  }
+}
