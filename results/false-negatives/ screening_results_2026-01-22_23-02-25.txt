@@ -1,0 +1,119 @@
+
+[246/3055] AVAIL (0x39702843a6733932ec7ce0dde404e5a6dbd8c989)
+  Verified: false | Liq: $648816 | Vol: $333698 | Age: 227.1d | Frag: true
+  Score: 0.00 (L:0 V:0 H:0 F:0)
+  Result: REJECTED - Contract not verified
+
+
+
+[141/3055] ALLO (0xCCe5F304fD043d6A4E8cCB5376A4a4Fb583B98d5)
+  Verified: false | Liq: $192153 | Vol: $2206 | Age: 73.1d | Frag: true
+  Score: 0.00 (L:0 V:0 H:0 F:0)
+  Result: REJECTED - Contract not verified
+
+
+
+[5/3055] DOGE (0xba2ae424d960c26247dd6c32edc70b295c744c43)
+  Verified: false | Liq: $544085 | Vol: $39241 | Age: 1024.9d | Frag: true
+  Score: 0.00 (L:0 V:0 H:0 F:0)
+  Result: REJECTED - Contract not verified
+
+
+[253/3055] AVL (0x9beee89723ceec27d7c2834bec6834208ffdc202)
+  Verified: false | Liq: $953418 | Vol: $122784 | Age: 256.9d | Frag: true
+  Score: 0.00 (L:0 V:0 H:0 F:0)
+  Result: REJECTED - Contract not verified
+
+
+[476/3055] BOS (0xae1e85c3665b70b682defd778e3dafdf09ed3b0f)
+  Verified: false | Liq: $354796 | Vol: $12223 | Age: 86.6d | Frag: true
+  Score: 0.00 (L:0 V:0 H:0 F:0)
+  Result: REJECTED - Contract not verified
+
+
+[536/3055] BTR (0xfed13d0c40790220fbde712987079eda1ed75c51)
+  Verified: false | Liq: $558138 | Vol: $2170233 | Age: 150.2d | Frag: true
+  Score: 0.00 (L:0 V:0 H:0 F:0)
+  Result: REJECTED - Contract not verified
+
+
+[562/3055] Blum (0xfDc8Cd47848c0C67dF66F7120F4e3371181cFA5e)
+  Verified: false | Liq: $637280 | Vol: $12393 | Age: 148.3d | Frag: true
+  Score: 0.00 (L:0 V:0 H:0 F:0)
+  Result: REJECTED - Contract not verified
+
+
+[651/3055] CHEEL (0x1F1C90aEb2fd13EA972F0a71e35c0753848e3DB0)
+  Verified: false | Liq: $129415 | Vol: $2442 | Age: 1078.1d | Frag: true
+  Score: 0.00 (L:0 V:0 H:0 F:0)
+  Result: REJECTED - Contract not verified
+
+[678/3055] CMC20 (0x2f8A339B5889FfaC4c5A956787cdA593b3c36867)
+  Verified: false | Liq: $2292866 | Vol: $600976 | Age: 72.1d | Frag: true
+  Score: 0.00 (L:0 V:0 H:0 F:0)
+  Result: REJECTED - Contract not verified
+
+[821/3055] DEXE (0x6E88056E8376Ae7709496Ba64d37fa2f8015ce3e)
+  Verified: false | Liq: $309893 | Vol: $103841 | Age: 596.3d | Frag: true
+  Score: 0.00 (L:0 V:0 H:0 F:0)
+  Result: REJECTED - Contract not verified
+
+[859/3055] DOGE (0xba2ae424d960c26247dd6c32edc70b295c744c43)
+  Verified: false | Liq: $544254 | Vol: $30640 | Age: 1024.9d | Frag: true
+  Score: 0.00 (L:0 V:0 H:0 F:0)
+  Result: REJECTED - Contract not verified
+
+
+[923/3055] DUSD (0xaf44A1E76F56eE12ADBB7ba8acD3CbD474888122)
+  Verified: false | Liq: $132481688 | Vol: $3545837 | Age: 293.5d | Frag: true
+  Score: 0.00 (L:0 V:0 H:0 F:0)
+  Result: REJECTED - Contract not verified
+
+
+[994/3055] ERA (0x00312400303d02c323295f6e8b7309bc30fb6bce)
+  Verified: false | Liq: $205951 | Vol: $62717 | Age: 190.4d | Frag: true
+  Score: 0.00 (L:0 V:0 H:0 F:0)
+  Result: REJECTED - Contract not verified
+
+
+[1041/3055] FDUSD (0xc5f0f7b66764F6ec8C8Dff7BA683102295E16409)
+  Verified: false | Liq: $215431 | Vol: $68067 | Age: 826.5d | Frag: true
+  Score: 0.00 (L:0 V:0 H:0 F:0)
+  Result: REJECTED - Contract not verified
+
+
+[1262/3055] HAEDAL (0x3D9bE0aC1001cd81c32464276D863d2FFdCa4967)
+  Verified: false | Liq: $245134 | Vol: $22083 | Age: 269.2d | Frag: true
+  Score: 0.00 (L:0 V:0 H:0 F:0)
+  Result: REJECTED - Contract not verified
+
+[1365/3055] IN (0x61fac5f038515572d6f42d4bcb6b581642753d50)
+  Verified: false | Liq: $1658943 | Vol: $726476 | Age: 78.6d | Frag: true
+  Score: 0.00 (L:0 V:0 H:0 F:0)
+  Result: REJECTED - Contract not verified
+
+[1516/3055] LEE (0xE37DbF20A4fFf3B88233e456355dc49B76B6fe19)
+  Verified: false | Liq: $282048 | Vol: $2314 | Age: 1066.2d | Frag: true
+  Score: 0.00 (L:0 V:0 H:0 F:0)
+  Result: REJECTED - Contract not verified
+
+[1546/3055] LITKEY (0x0bBeA6812fb3fcBcA126eDb558e551B3f1702026)
+  Verified: false | Liq: $366321 | Vol: $167373 | Age: 83.1d | Frag: true
+  Score: 0.00 (L:0 V:0 H:0 F:0)
+  Result: REJECTED - Contract not verified
+
+[1586/3055] LUCA (0x51e6ac1533032e72e92094867fd5921e3ea1bfa0)
+  Verified: false | Liq: $252382 | Vol: $9278 | Age: 1113.2d | Frag: true
+  Score: 0.00 (L:0 V:0 H:0 F:0)
+  Result: REJECTED - Contract not verified
+
+[1607/3055] M (0x22b1458e780f8fa71e2f84502cee8b5a3cc731fa)
+  Verified: false | Liq: $191947 | Vol: $31654 | Age: 203.4d | Frag: true
+  Score: 0.00 (L:0 V:0 H:0 F:0)
+  Result: REJECTED - Contract not verified
+
+[1739/3055] MLC (0xe8Db8733c5baDF634F86D6EF894fFdBF0e85B7c2)
+  Verified: false | Liq: $233240 | Vol: $3922 | Age: 89.0d | Frag: true
+  Score: 0.00 (L:0 V:0 H:0 F:0)
+  Result: REJECTED - Contract not verified
+
