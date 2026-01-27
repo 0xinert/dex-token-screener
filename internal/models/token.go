@@ -60,8 +60,10 @@ type DexScreenerPair struct {
 	} `json:"priceChange"`
 }
 
-// BscScanHolder represents token holder data
-type BscScanHolder struct {
-	Address string `json:"TokenHolderAddress"`
-	Balance string `json:"TokenHolderQuantity"`
+// HoneyPotHolder represents token holder data fetched from HoneyPot API.
+type HoneyPotHolder struct {
+	Address    string `json:"address"`
+	Balance    string `json:"balance"`
+	Alias      string `json:"alias"`
+	IsContract bool   `json:"isContract"`
 }

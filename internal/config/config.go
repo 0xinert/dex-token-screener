@@ -38,7 +38,7 @@ func Load() *Config {
 
 		MinLiquidityUSD:             getEnvFloat("MIN_LIQUIDITY_USD", 100000),
 		MinVolume24h:                getEnvFloat("MIN_VOLUME_24H", 10000),
-		MaxTop10HolderConcentration: getEnvFloat("MAX_TOP10_HOLDERS", 70),
+		MaxTop10HolderConcentration: getEnvFloat("MAX_TOP10_HOLDERS", 90),
 
 		LiquidityWeight:     0.35,
 		VolumeWeight:        0.30,

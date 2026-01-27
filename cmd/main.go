@@ -29,6 +29,7 @@ type TokenResult struct {
 	Volume         float64
 	Age            float64
 	Fragmented     bool
+	Concentration  float64
 	FailureReasons []string
 }
 
@@ -40,6 +41,7 @@ type Statistics struct {
 	FailedCount       int
 	NoUSDTPairs       int
 	NoDexScreenerData int
+	NoHoneyPotData    int
 	OtherErrors       int
 }
 
@@ -53,8 +55,9 @@ func main() {
 
 	bscScanClient := contract.NewBscScanClient(cfg.BscScanAPIKey)
 	dexscreenerClient := market.NewDexScreenerClient()
+	honypotClient := market.NewHoneyPotClient()
 
-	tokenInfos := readTokens("tokenData/output.json")
+	tokenInfos := readTokens("tokenData/parsed_10000_BSC_tokens.json")
 
 	// Create output file
 	outputFile, err := os.Create(fmt.Sprintf("./results/screening_results_%s.txt", time.Now().Format("2006-01-02_15-04-05")))
@@ -127,7 +130,30 @@ func main() {
 		stats.EvaluatedCount++
 
 		// TODO: Implement holder concentration
-		holderConc := 20.0
+		holderConc, err := honypotClient.GetTop10HoldersConcentration(tokenInfo.Address)
+		if err != nil {
+			errMsg := fmt.Sprintf("  ERROR: %v\n\n", err)
+			fmt.Print(errMsg)
+			outputFile.WriteString(errMsg)
+
+			result.Status = "ERROR"
+			result.ErrorReason = err.Error()
+			stats.ErrorCount++
+
+			// Categorize error type
+			if contains(err.Error(), "no USDT pairs") {
+				stats.NoUSDTPairs++
+			} else if contains(err.Error(), "no DEXScreener pairs") {
+				stats.NoDexScreenerData++
+			} else if contains(err.Error(), "no honeyPot data found") {
+				stats.NoHoneyPotData++
+			} else {
+				stats.OtherErrors++
+			}
+
+			results = append(results, result)
+			continue
+		}
 
 		// Calculate score
 		scoreResult, safe := scoring.Scorer(
@@ -144,12 +170,13 @@ func main() {
 		result.Volume = vol
 		result.Age = poolAge
 		result.Fragmented = !fragSafe
+		result.Concentration = holderConc
 		result.Score = scoreResult.CompositeScore
 		result.FailureReasons = scoreResult.FailureReasons
 
 		// Output details
-		details := fmt.Sprintf("  Verified: %t | Liq: $%.0f | Vol: $%.0f | Age: %.1fd | Frag: %t\n",
-			verified, liq, vol, poolAge, fragSafe)
+		details := fmt.Sprintf("  Verified: %t | Liq: $%.0f | Vol: $%.0f | Age: %.1fd | Frag: %t | Conc: %.2f%%\n",
+			verified, liq, vol, poolAge, fragSafe, holderConc)
 		details += fmt.Sprintf("  Score: %.2f (L:%.0f V:%.0f H:%.0f F:%.0f)\n",
 			scoreResult.CompositeScore, scoreResult.LiquidityScore, scoreResult.VolumeScore, scoreResult.HolderScore, scoreResult.FragmentationScore)
 
