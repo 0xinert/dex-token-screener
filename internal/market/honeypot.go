@@ -41,13 +41,13 @@ type APIErrorResponse struct {
 
 func NewHoneyPotClient() *HoneyPotClient {
 	return &HoneyPotClient{
-		baseURL:    "https://api.honeypot.is/v1/TopHolders",
+		baseURL:    "https://api.honeypot.is",
 		httpClient: &http.Client{Timeout: 5 * time.Second},
 	}
 }
 
 func (c *HoneyPotClient) GetTop10HoldersConcentration(contractAddress string) (float64, error) {
-	url := fmt.Sprintf("%s?address=%s&chainID=56", c.baseURL, contractAddress)
+	url := fmt.Sprintf("%s/v1/TopHolders?address=%s&chainID=56", c.baseURL, contractAddress)
 
 	resp, err := c.httpClient.Get(url)
 	if err != nil {

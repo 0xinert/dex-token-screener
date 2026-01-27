@@ -1,0 +1,13 @@
+Token Screening Pipeline - 2026-01-27 14:41:34
+Total: 3055 tokens
+
+[1/3055] WBNB (0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c)
+  ERROR: Get "v1/TopHolders/https://api.honeypot.is/?address=0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c&chainID=56": unsupported protocol scheme ""
+
+[2/3055] CAKE (0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82)
+  ERROR: Get "v1/TopHolders/https://api.honeypot.is/?address=0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82&chainID=56": unsupported protocol scheme ""
+
+[3/3055] ETH (0x2170ed0880ac9a755fd29b2688956bd959f933f8)
+  ERROR: Get "v1/TopHolders/https://api.honeypot.is/?address=0x2170ed0880ac9a755fd29b2688956bd959f933f8&chainID=56": unsupported protocol scheme ""
+
+[4/3055] LINK (0xf8a0bf9cf54bb92f17374d9e9a321e6a111a51bd)

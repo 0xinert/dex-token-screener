@@ -1,0 +1,96 @@
+{
+  "token": {
+    "name": "AVL",
+    "symbol": "AVL",
+    "decimals": 18,
+    "address": "0x9BeEE89723cEeC27d7c2834bec6834208FFdc202",
+    "totalHolders": 49987,
+    "airdropSummary": {
+      "totalTxs": 79,
+      "totalAmountWei": "5914889811031563000000000",
+      "totalTransfers": 63258
+    }
+  },
+  "withToken": {
+    "name": "Tether USD",
+    "symbol": "USDT",
+    "decimals": 18,
+    "address": "0x55d398326f99059fF775485246999027B3197955",
+    "totalHolders": 41546473
+  },
+  "summary": {
+    "risk": "honeypot",
+    "riskLevel": 100,
+    "flags": [
+      {
+        "flag": "high_fail_rate",
+        "description": "A very high amount of users cannot sell their tokens.",
+        "severity": "critical",
+        "severityIndex": 20
+      }
+    ]
+  },
+  "simulationSuccess": true,
+  "honeypotResult": {
+    "isHoneypot": true,
+    "honeypotReason": "HONEYPOT DETECTED"
+  },
+  "simulationResult": {
+    "buyTax": 0,
+    "sellTax": 0,
+    "transferTax": 0,
+    "buyGas": "192385",
+    "sellGas": "140729"
+  },
+  "holderAnalysis": {
+    "holders": "833",
+    "successful": "578",
+    "failed": "255",
+    "siphoned": "0",
+    "averageTax": 0,
+    "averageGas": 127065.72837370243,
+    "highestTax": 0,
+    "highTaxWallets": "0",
+    "taxDistribution": [
+      {
+        "tax": 0,
+        "count": 578
+      }
+    ],
+    "snipersFailed": 0,
+    "snipersSuccess": 0
+  },
+  "flags": [
+    "high_fail_rate"
+  ],
+  "contractCode": {
+    "openSource": true,
+    "rootOpenSource": true,
+    "isProxy": true,
+    "hasProxyCalls": true
+  },
+  "chain": {
+    "id": "56",
+    "name": "Binance Smart Chain",
+    "shortName": "bsc",
+    "currency": "BNB"
+  },
+  "router": "0x1b81D678ffb9C0263b24A97847620C99d213eB14",
+  "pair": {
+    "pair": {
+      "name": "PancakeSwap V3: USDT-AVL",
+      "address": "0x7192966c6d3AB630eE60dBD4c1B39E9e8267F8cF",
+      "token0": "0x55d398326f99059fF775485246999027B3197955",
+      "token1": "0x9BeEE89723cEeC27d7c2834bec6834208FFdc202",
+      "type": "UniswapV3"
+    },
+    "chainId": "56",
+    "reserves0": "527783738746771631918507",
+    "reserves1": "6031325997952008676128626",
+    "liquidity": 1054845.4693389377,
+    "router": "0x1b81D678ffb9C0263b24A97847620C99d213eB14",
+    "createdAtTimestamp": "1746910051",
+    "creationTxHash": "0x274b29ef4a71d61c18b58b7ad4d71cd0dffe4a3aac9138c1f627d4e27089abe6"
+  },
+  "pairAddress": "0x7192966c6d3AB630eE60dBD4c1B39E9e8267F8cF"
+}

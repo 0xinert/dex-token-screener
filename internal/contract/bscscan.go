@@ -172,10 +172,3 @@ func (c *BscScanClient) GetTotalSupply(contractAddress string) (float64, error) 
 
 	return strconv.ParseFloat(result.Result, 64)
 }
-
-// ways i can easily check the age of a given bsc dex token just by using it's contract address:
-//
-// 1. If Dexscreener pairCreatedAt exists → use it
-// 2. Else earliest Transfer mint tx timestamp
-// 3. Else PancakeSwap pair creation block
-// 4. Label confidence level
