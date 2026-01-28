@@ -39,11 +39,12 @@ type FraudResult struct {
 
 // Thresholds for fraud detection
 const (
-	MaxAcceptableTax        = 15.0 // 15% total tax (buy + sell)
-	MaxHolderFailRate       = 0.10 // 10% of holders failing to sell
-	MinHolderSampleSize     = 100  // Minimum holders to trust fail rate
-	MaxCreatorPercent       = 0.20 // 20% creator holdings
-	HighTaxWarningThreshold = 10.0 // 10% total tax triggers warning
+	MaxAcceptableTax        = 15.0  // 15% total tax (buy + sell)
+	MaxHolderFailRate       = 0.10  // 10% of holders failing to sell
+	MinHolderSampleSize     = 100   // Minimum holders to trust fail rate
+	MaxCreatorPercent       = 0.20  // 20% creator holdings
+	HighTaxWarningThreshold = 10.0  // 10% total tax triggers warning
+	MajorTokenHolderCount   = 50000 // Skip owner_renouncement check if above this
 )
 
 // AggregateFraudCheck combines Honeypot.is and GoPlus results into a single verdict
@@ -55,13 +56,26 @@ func AggregateFraudCheck(honeypot *HoneypotData, goplus *GoPlusData) *FraudResul
 	}
 
 	// ==== HARD REJECTS (Any of these = instant fail) ====
-
-	// 1. Honeypot.is detected honeypot
+	// 1. Honeypot detection - BUT only reject if fail rate confirms it
 	if honeypot.IsHoneypot {
-		result.IsHoneypot = true
-		result.IsSafe = false
-		result.RejectionReason = fmt.Sprintf("Honeypot detected: %s", honeypot.HoneypotReason)
-		return result
+		// If fail rate is high (>10%), definitely reject
+		if honeypot.TotalHolders >= MinHolderSampleSize && honeypot.FailRate > 0.10 {
+			result.IsHoneypot = true
+			result.IsSafe = false
+			result.RejectionReason = fmt.Sprintf(
+				"Honeypot detected with high fail rate: %.1f%% (%d/%d holders cannot sell)",
+				honeypot.FailRate*100,
+				honeypot.FailedSells,
+				honeypot.TotalHolders,
+			)
+			return result
+		}
+
+		// If fail rate is moderate (5-10%), warn but don't reject
+		if honeypot.FailRate > 0.05 {
+			result.RiskFactors = append(result.RiskFactors,
+				fmt.Sprintf("honeypot_flagged_moderate_fail_rate_%.1f%%", honeypot.FailRate*100))
+		}
 	}
 
 	// 2. GoPlus detected cannot buy
@@ -137,10 +151,13 @@ func AggregateFraudCheck(honeypot *HoneypotData, goplus *GoPlusData) *FraudResul
 		riskFactors = append(riskFactors, "not_open_source")
 	}
 
-	// Owner not renounced
+	// Owner not renounced -- SKIPPING FOR MAJOR TOKENS
 	if goplus.HasOwner {
 		result.HasOwner = true
-		riskFactors = append(riskFactors, "owner_not_renounced")
+		// Only flag if NOT a major token (< 50K holders or < $5M liq)
+		if goplus.HolderCount < 50000 {
+			riskFactors = append(riskFactors, "owner_not_renounced")
+		}
 	}
 
 	// High creator holdings
@@ -162,14 +179,6 @@ func AggregateFraudCheck(honeypot *HoneypotData, goplus *GoPlusData) *FraudResul
 		riskFactors = append(riskFactors, fmt.Sprintf(
 			"high_tax_%.1f%%",
 			result.TotalTax,
-		))
-	}
-
-	// Moderate holder fail rate (5-10%)
-	if honeypot.TotalHolders >= MinHolderSampleSize && honeypot.FailRate > 0.05 {
-		riskFactors = append(riskFactors, fmt.Sprintf(
-			"moderate_fail_rate_%.1f%%",
-			honeypot.FailRate*100,
 		))
 	}
 

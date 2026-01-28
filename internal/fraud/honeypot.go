@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"io"
 	"net/http"
+	"strconv"
 	"time"
 )
 
@@ -44,10 +45,10 @@ type HoneypotAPIResponse struct {
 		SellGas     string  `json:"sellGas"`
 	} `json:"simulationResult"`
 	HolderAnalysis struct {
-		Holders    int     `json:"holders"`
-		Successful int     `json:"successful"`
-		Failed     int     `json:"failed"`
-		Siphoned   int     `json:"siphoned"`
+		Holders    string  `json:"holders"`
+		Successful string  `json:"successful"`
+		Failed     string  `json:"failed"`
+		Siphoned   string  `json:"siphoned"`
 		AverageTax float64 `json:"averageTax"`
 	} `json:"holderAnalysis"`
 	Flags        []string `json:"flags"`
@@ -112,10 +113,15 @@ func (h *HoneypotClient) CheckToken(address string) (*HoneypotData, error) {
 		return nil, err
 	}
 
+	// Parse holder analysis strings to ints
+	holders, _ := strconv.Atoi(apiResp.HolderAnalysis.Holders)
+	successful, _ := strconv.Atoi(apiResp.HolderAnalysis.Successful)
+	failed, _ := strconv.Atoi(apiResp.HolderAnalysis.Failed)
+
 	// Calculate fail rate
 	var failRate float64
-	if apiResp.HolderAnalysis.Holders > 0 {
-		failRate = float64(apiResp.HolderAnalysis.Failed) / float64(apiResp.HolderAnalysis.Holders)
+	if holders > 0 {
+		failRate = float64(failed) / float64(holders)
 	}
 
 	// Extract only the fields we need
@@ -126,9 +132,9 @@ func (h *HoneypotClient) CheckToken(address string) (*HoneypotData, error) {
 		BuyTax:          apiResp.SimulationResult.BuyTax,
 		SellTax:         apiResp.SimulationResult.SellTax,
 		TransferTax:     apiResp.SimulationResult.TransferTax,
-		TotalHolders:    apiResp.HolderAnalysis.Holders,
-		SuccessfulSells: apiResp.HolderAnalysis.Successful,
-		FailedSells:     apiResp.HolderAnalysis.Failed,
+		TotalHolders:    holders,
+		SuccessfulSells: successful,
+		FailedSells:     failed,
 		FailRate:        failRate,
 		IsOpenSource:    apiResp.ContractCode.OpenSource,
 		IsProxy:         apiResp.ContractCode.IsProxy,

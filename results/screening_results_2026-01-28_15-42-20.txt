@@ -1,0 +1,291 @@
+BSC Token Screening Pipeline - 2026-01-28 15:42:20
+Total: 3055 tokens
+
+[1/3055] WBNB (0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c)
+  Verified: true | Liq: $82349648 | Vol: $208443571 | Age: 20481.4d | Frag: true | Conc: 36.74%
+  Score: 96.25 (L:100 V:100 H:85 F:100)
+  Result: PASSED - FEATURED
+
+[2/3055] CAKE (0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82)
+  Verified: true | Liq: $14715703 | Vol: $2095137 | Age: 1032.9d | Frag: true | Conc: 89.32%
+  Score: 78.00 (L:100 V:85 H:30 F:100)
+  Fraud Risk: [owner_not_renounced] (Score: 20/100)
+  Result: PASSED - FEATURED
+
+[3/3055] ETH (0x2170ed0880ac9a755fd29b2688956bd959f933f8)
+  Verified: true | Liq: $8483686 | Vol: $12732909 | Age: 1022.9d | Frag: true | Conc: 73.79%
+  Score: 81.00 (L:100 V:95 H:30 F:100)
+  Fraud Risk: [owner_not_renounced] (Score: 20/100)
+  Result: PASSED - FEATURED
+
+[4/3055] LINK (0xf8a0bf9cf54bb92f17374d9e9a321e6a111a51bd)
+  REJECTED: Honeypot detected: HONEYPOT DETECTED
+
+[5/3055] DOGE (0xba2ae424d960c26247dd6c32edc70b295c744c43)
+  REJECTED: Contract not verified
+
+[6/3055] 1 (0xE77223430bfb8e497a3c8E126cb5Ad5275934444)
+  REJECTED: Below thresholds (Liq: $5, Vol: $0)
+
+[7/3055] 4 (0x0A43fC31a73013089DF59194872Ecae4cAe14444)
+  ERROR: GoPlus API failed: no data found for token 0x0A43fC31a73013089DF59194872Ecae4cAe14444
+
+[8/3055] 8 (0x33c7d0387e25964F65497cC92637C0eC32944444)
+  ERROR: no USDT pairs found for token 0x33c7d0387e25964F65497cC92637C0eC32944444
+
+[9/3055] 42 (0x834BAf4f7832Cc3C00734DDb2e0c61C68d975822)
+  ERROR: no DEXScreener pairs found for token 0x834BAf4f7832Cc3C00734DDb2e0c61C68d975822
+
+[10/3055] 42 (0x73cf73c2503154de4dc12067546aa9357dadaff2)
+  REJECTED: Below thresholds (Liq: $6591, Vol: $64)
+
+[11/3055] 2049 (0xfcf50eebcf73669922bb498c4f1fd7ba35904444)
+  ERROR: no USDT pairs found for token 0xfcf50eebcf73669922bb498c4f1fd7ba35904444
+
+[12/3055] $BRICKS (0x13e1070e3a388e53ec35480ff494538f9ffc5b8d)
+  ERROR: no USDT pairs found for token 0x13e1070e3a388e53ec35480ff494538f9ffc5b8d
+
+[13/3055] $FLY (0x7CFAAAd25c3e791cC68AeFa28777cDf7Cc666F86)
+  REJECTED: Below thresholds (Liq: $67, Vol: $0)
+
+[14/3055] $GOLD (0xdbd1ed1fa8ba9eadaa38da012a4180a8f4af3f93)
+  ERROR: no DEXScreener pairs found for token 0xdbd1ed1fa8ba9eadaa38da012a4180a8f4af3f93
+
+[15/3055] $HMT (0x71e67b8d88718d113fc7edbd95f7ca380222b3c6)
+  ERROR: no DEXScreener pairs found for token 0x71e67b8d88718d113fc7edbd95f7ca380222b3c6
+
+[16/3055] $INR (0xab725d0a10c3f24725c89f5765ae5794a26c1336)
+  ERROR: no DEXScreener pairs found for token 0xab725d0a10c3f24725c89f5765ae5794a26c1336
+
+[17/3055] $IPAX (0x95dB59F8AeeeD345CFb3DD87762DE37c77B8F520)
+  REJECTED: Below thresholds (Liq: $908, Vol: $61)
+
+[18/3055] $MMDAO (0x82282e76f902bCF0f01690A532Ea5A238BdC414b)
+  ERROR: no USDT pairs found for token 0x82282e76f902bCF0f01690A532Ea5A238BdC414b
+
+[19/3055] $PG (0xE72D0888b108d2FafF5714C28c493C48808DFe52)
+  ERROR: no DEXScreener pairs found for token 0xE72D0888b108d2FafF5714C28c493C48808DFe52
+
+[20/3055] $SILVER (0x7FA58Cb42fc030D702C2F61559e4744AA756cBBA)
+  ERROR: no USDT pairs found for token 0x7FA58Cb42fc030D702C2F61559e4744AA756cBBA
+
+[21/3055] $USDC (0x7db54758503c25200b331131c219acd64cfa74c8)
+  ERROR: no DEXScreener pairs found for token 0x7db54758503c25200b331131c219acd64cfa74c8
+
+[22/3055] 1 (0xE77223430bfb8e497a3c8E126cb5Ad5275934444)
+  REJECTED: Below thresholds (Liq: $5, Vol: $0)
+
+[23/3055] 4 (0x0A43fC31a73013089DF59194872Ecae4cAe14444)
+  ERROR: GoPlus API failed: no data found for token 0x0A43fC31a73013089DF59194872Ecae4cAe14444
+
+[24/3055] 8 (0x33c7d0387e25964F65497cC92637C0eC32944444)
+  ERROR: no USDT pairs found for token 0x33c7d0387e25964F65497cC92637C0eC32944444
+
+[25/3055] 42 (0x834BAf4f7832Cc3C00734DDb2e0c61C68d975822)
+  ERROR: no DEXScreener pairs found for token 0x834BAf4f7832Cc3C00734DDb2e0c61C68d975822
+
+[26/3055] 42 (0x73cf73c2503154de4dc12067546aa9357dadaff2)
+  REJECTED: Below thresholds (Liq: $6591, Vol: $64)
+
+[27/3055] 2049 (0xfcf50eebcf73669922bb498c4f1fd7ba35904444)
+  ERROR: no USDT pairs found for token 0xfcf50eebcf73669922bb498c4f1fd7ba35904444
+
+[28/3055] $BRICKS (0x13e1070e3a388e53ec35480ff494538f9ffc5b8d)
+  ERROR: no USDT pairs found for token 0x13e1070e3a388e53ec35480ff494538f9ffc5b8d
+
+[29/3055] $FLY (0x7CFAAAd25c3e791cC68AeFa28777cDf7Cc666F86)
+  REJECTED: Below thresholds (Liq: $67, Vol: $0)
+
+[30/3055] $GOLD (0xdbd1ed1fa8ba9eadaa38da012a4180a8f4af3f93)
+  ERROR: no DEXScreener pairs found for token 0xdbd1ed1fa8ba9eadaa38da012a4180a8f4af3f93
+
+[31/3055] $HMT (0x71e67b8d88718d113fc7edbd95f7ca380222b3c6)
+  ERROR: no DEXScreener pairs found for token 0x71e67b8d88718d113fc7edbd95f7ca380222b3c6
+
+[32/3055] $INR (0xab725d0a10c3f24725c89f5765ae5794a26c1336)
+  ERROR: no DEXScreener pairs found for token 0xab725d0a10c3f24725c89f5765ae5794a26c1336
+
+[33/3055] $INR (0xab725d0a10c3f24725c89f5765ae5794a26c1336)
+  ERROR: no DEXScreener pairs found for token 0xab725d0a10c3f24725c89f5765ae5794a26c1336
+
+[34/3055] $IPAX (0x95dB59F8AeeeD345CFb3DD87762DE37c77B8F520)
+  REJECTED: Below thresholds (Liq: $908, Vol: $61)
+
+[35/3055] $MMDAO (0x82282e76f902bCF0f01690A532Ea5A238BdC414b)
+  ERROR: no USDT pairs found for token 0x82282e76f902bCF0f01690A532Ea5A238BdC414b
+
+[36/3055] $PG (0xE72D0888b108d2FafF5714C28c493C48808DFe52)
+  ERROR: no DEXScreener pairs found for token 0xE72D0888b108d2FafF5714C28c493C48808DFe52
+
+[37/3055] $SILVER (0x7FA58Cb42fc030D702C2F61559e4744AA756cBBA)
+  ERROR: no USDT pairs found for token 0x7FA58Cb42fc030D702C2F61559e4744AA756cBBA
+
+[38/3055] $USDC (0x7db54758503c25200b331131c219acd64cfa74c8)
+  ERROR: no DEXScreener pairs found for token 0x7db54758503c25200b331131c219acd64cfa74c8
+
+[39/3055] 0G (0x4B948d64dE1F71fCd12fB586f4c776421a35b3eE)
+  ERROR: GoPlus API failed: no data found for token 0x4B948d64dE1F71fCd12fB586f4c776421a35b3eE
+
+[40/3055] 10SET (0x1AE369A6AB222aFF166325B7b87Eb9aF06C86E57)
+  ERROR: no DEXScreener pairs found for token 0x1AE369A6AB222aFF166325B7b87Eb9aF06C86E57
+
+[41/3055] 1ART (0xD3c325848D7c6E29b574Cb0789998b2ff901f17E)
+  ERROR: no USDT pairs found for token 0xD3c325848D7c6E29b574Cb0789998b2ff901f17E
+
+[42/3055] 1INCH (0x111111111117dc0aa78b770fa6a738034120c302)
+  REJECTED: Below thresholds (Liq: $5066, Vol: $20433)
+
+[43/3055] 1OZT (0x9Cac9837155A851e3d08639a40aE5bF18d968cd3)
+  REJECTED: Below thresholds (Liq: $1224, Vol: $0)
+
+[44/3055] 1PIECE (0xf263cc32caed261a819713f3dcc494a96c3e5111)
+  ERROR: no USDT pairs found for token 0xf263cc32caed261a819713f3dcc494a96c3e5111
+
+[45/3055] 2MOON (0x817b32d386cFc1F872de306DfAeDfDa36429cA1E)
+  REJECTED: Below thresholds (Liq: $952, Vol: $254)
+
+[46/3055] 314DAO (0xbf1f246c913b3d4f2fda290f9507357c03fc91cf)
+  ERROR: no USDT pairs found for token 0xbf1f246c913b3d4f2fda290f9507357c03fc91cf
+
+[47/3055] 3AIR (0x596834746B5b78F31A089EE7853fa595682824B7)
+  ERROR: no USDT pairs found for token 0x596834746B5b78F31A089EE7853fa595682824B7
+
+[48/3055] 4EVER (0x63eC886286f30AD392749b9e8f24f67F5b8Ac394)
+  ERROR: no USDT pairs found for token 0x63eC886286f30AD392749b9e8f24f67F5b8Ac394
+
+[49/3055] 4TOKEN (0x61B83eDF87Ea662C695439A807c386455c9E797C)
+  ERROR: no DEXScreener pairs found for token 0x61B83eDF87Ea662C695439A807c386455c9E797C
+
+[50/3055] 5PT (0xe6cae4094352a670c3eb0fcbDa17c898b71c7F2A)
+  REJECTED: Below thresholds (Liq: $6, Vol: $0)
+
+[51/3055] 8PAY (0x6eadc05928acd93efb3fa0dfbc644d96c6aa1df8)
+  ERROR: no DEXScreener pairs found for token 0x6eadc05928acd93efb3fa0dfbc644d96c6aa1df8
+
+[52/3055] @G (0x440017A1b021006d556d7fc06A54c32E42Eb745B)
+  ERROR: no DEXScreener pairs found for token 0x440017A1b021006d556d7fc06A54c32E42Eb745B
+
+[53/3055] AA (0x01bf3d77cd08b19bf3f2309972123a2cca0f6936)
+  ERROR: no USDT pairs found for token 0x01bf3d77cd08b19bf3f2309972123a2cca0f6936
+
+[54/3055] AAPLX (0x9d275685dc284c8eb1c79f6aba7a63dc75ec890a)
+  ERROR: no DEXScreener pairs found for token 0x9d275685dc284c8eb1c79f6aba7a63dc75ec890a
+
+[55/3055] AAPLon (0x390a684ef9cade28a7ad0dfa61ab1eb3842618c4)
+  ERROR: no DEXScreener pairs found for token 0x390a684ef9cade28a7ad0dfa61ab1eb3842618c4
+
+[56/3055] AAST (0xb1E998b346DDDacD06f01db50645bE52DafB93db)
+  REJECTED: Below thresholds (Liq: $3831, Vol: $307)
+
+[57/3055] AAVE (0xfb6115445bff7b52feb98650c87f44907e58f802)
+  REJECTED: Below thresholds (Liq: $21489, Vol: $5543)
+
+[58/3055] AB (0x95034f653d5d161890836ad2b6b8cc49d14e029a)
+  REJECTED: Honeypot detected: HONEYPOT DETECTED
+
+[59/3055] ABBC (0xe83cE6bfb580583bd6A62B4Be7b34fC25F02910D)
+  ERROR: no USDT pairs found for token 0xe83cE6bfb580583bd6A62B4Be7b34fC25F02910D
+
+[60/3055] ABBVX (0xfbf2398df672cee4afcc2a4a733222331c742a6a)
+  ERROR: no DEXScreener pairs found for token 0xfbf2398df672cee4afcc2a4a733222331c742a6a
+
+[61/3055] ABCD (0xa0cc3a881aef241d6cb3b7db3168bd26094560be)
+  REJECTED: Below thresholds (Liq: $0, Vol: $0)
+
+[62/3055] ABNBon (0xef80743f78d98fc2b47a2253b293152ce8b879ba)
+  ERROR: no DEXScreener pairs found for token 0xef80743f78d98fc2b47a2253b293152ce8b879ba
+
+[63/3055] ABOND (0x34294AfABCbaFfc616ac6614F6d2e17260b78BEd)
+  REJECTED: Below thresholds (Liq: $527, Vol: $27)
+
+[64/3055] ABR (0x68784ffaa6Ff05E3e04575DF77960DC1D9F42b4a)
+  REJECTED: Below thresholds (Liq: $49, Vol: $0)
+
+[65/3055] ABRA (0xca1c644704febf4ab81f85daca488d1623c28e63)
+  ERROR: no DEXScreener pairs found for token 0xca1c644704febf4ab81f85daca488d1623c28e63
+
+[66/3055] ABTX (0x89233399708c18ac6887f90a2b4cd8ba5fedd06e)
+  ERROR: no DEXScreener pairs found for token 0x89233399708c18ac6887f90a2b4cd8ba5fedd06e
+
+[67/3055] ABTon (0x5a20886b575058dd7299785f0ea9b1172942a3e0)
+  ERROR: no DEXScreener pairs found for token 0x5a20886b575058dd7299785f0ea9b1172942a3e0
+
+[68/3055] ACA (0x9eb6935aea6afb5bc6d1a74be0c2f78280ab6448)
+  ERROR: no USDT pairs found for token 0x9eb6935aea6afb5bc6d1a74be0c2f78280ab6448
+
+[69/3055] ACCES (0x1E5c718b4377B5deEEF01AFf5BDC29a9528df1A3)
+  ERROR: no DEXScreener pairs found for token 0x1E5c718b4377B5deEEF01AFf5BDC29a9528df1A3
+
+[70/3055] ACCG (0xD436F4f4F309f3eeC38b33071CcC7115630a1F1C)
+  ERROR: no DEXScreener pairs found for token 0xD436F4f4F309f3eeC38b33071CcC7115630a1F1C
+
+[71/3055] ACE (0xc27A719105A987b4c34116223CAE8bd8F4B5def4)
+  REJECTED: Below thresholds (Liq: $58729, Vol: $6)
+
+[72/3055] ACE (0xfaaa87943bfca6d97434be3d26c589647fea4375)
+  REJECTED: Below thresholds (Liq: $29, Vol: $17)
+
+[73/3055] ACH (0xBc7d6B50616989655AfD682fb42743507003056D)
+  REJECTED: Below thresholds (Liq: $22270, Vol: $2158)
+
+[74/3055] ACNX (0x03183ce31b1656b72a55fa6056e287f50c35bbeb)
+  ERROR: no DEXScreener pairs found for token 0x03183ce31b1656b72a55fa6056e287f50c35bbeb
+
+[75/3055] ACNon (0x7af44d51d1fb88c5b74fc71d3cba649bb8099d14)
+  ERROR: no DEXScreener pairs found for token 0x7af44d51d1fb88c5b74fc71d3cba649bb8099d14
+
+[76/3055] ACRIA (0x44f5909e97e1cbf5fbbdf0fc92fd83cde5d5c58a)
+  ERROR: no DEXScreener pairs found for token 0x44f5909e97e1cbf5fbbdf0fc92fd83cde5d5c58a
+
+[77/3055] ACS (0x8888888888f004100c0353d657be6300587a6ccd)
+  ERROR: no DEXScreener pairs found for token 0x8888888888f004100c0353d657be6300587a6ccd
+
+[78/3055] ACT (0x9f3bcbe48e8b754f331dfc694a894e8e686ac31d)
+  REJECTED: Below thresholds (Liq: $509, Vol: $7)
+
+[79/3055] ADA (0x3ee2200efb3400fabb9aacf31297cbdd1d435d47)
+  Verified: true | Liq: $542748 | Vol: $151571 | Age: 1006.1d | Frag: true | Conc: 73.39%
+  Score: 69.10 (L:62 V:100 H:30 F:100)
+  Fraud Risk: [owner_not_renounced] (Score: 20/100)
+  Result: PASSED - VISIBLE
+
+[80/3055] ADA (0x7f9A1A5C15125940895307A7E567301E51b3b612)
+  ERROR: no USDT pairs found for token 0x7f9A1A5C15125940895307A7E567301E51b3b612
+
+[81/3055] ADAO (0x3b76374Cc2DfE28Cc373DcA6d5024791B2586335)
+  ERROR: no USDT pairs found for token 0x3b76374Cc2DfE28Cc373DcA6d5024791B2586335
+
+[82/3055] ADAPAD (0xdb0170e2d0c1cc1b2e7a90313d9b9afa4f250289)
+  REJECTED: Below thresholds (Liq: $7, Vol: $0)
+
+[83/3055] ADBEon (0xcb22db0ecb6fe58b7b47db443dcfdfdfbf729cef)
+  ERROR: no DEXScreener pairs found for token 0xcb22db0ecb6fe58b7b47db443dcfdfdfbf729cef
+
+[84/3055] ADIX (0x020766ddfc022c26bd30ced6efd2ba8062dd7bac)
+  ERROR: no DEXScreener pairs found for token 0x020766ddfc022c26bd30ced6efd2ba8062dd7bac
+
+[85/3055] ADOG (0x87241b1b7Fd82Cf4F4842f195909cA69aA6E4444)
+  ERROR: no USDT pairs found for token 0x87241b1b7Fd82Cf4F4842f195909cA69aA6E4444
+
+[86/3055] ADON (0xCD392021084683803525FE5E6c00cAe9C6bE5774)
+  ERROR: no DEXScreener pairs found for token 0xCD392021084683803525FE5E6c00cAe9C6bE5774
+
+[87/3055] ADS (0xcfcecfe2bd2fed07a9145222e8a7ad9cf1ccd22a)
+  ERROR: no USDT pairs found for token 0xcfcecfe2bd2fed07a9145222e8a7ad9cf1ccd22a
+
+[88/3055] ADX (0x6bff4fb161347ad7de4a625ae5aa3a1ca7077819)
+  REJECTED: Below thresholds (Liq: $37922, Vol: $742)
+
+[89/3055] AEA (0xee634a826465a1799afc2cfefbdb6fa3766c8888)
+  REJECTED: Below thresholds (Liq: $19769, Vol: $69)
+
+[90/3055] AEUR (0xA40640458FBc27b6EefEdeA1E9C9E17d4ceE7a21)
+  ERROR: no DEXScreener pairs found for token 0xA40640458FBc27b6EefEdeA1E9C9E17d4ceE7a21
+
+[91/3055] AFEN (0xd0840d5f67206f865aee7cce075bd4484cd3cc81)
+  ERROR: no USDT pairs found for token 0xd0840d5f67206f865aee7cce075bd4484cd3cc81
+
+[92/3055] AFP (0x9a3321E1aCD3B9F6debEE5e042dD2411A1742002)
+  ERROR: no DEXScreener pairs found for token 0x9a3321E1aCD3B9F6debEE5e042dD2411A1742002
+
+[93/3055] AFRO (0x2f4e9c97aaffd67d98a640062d90e355b4a1c539)
